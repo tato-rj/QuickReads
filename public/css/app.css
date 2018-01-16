@@ -14903,3 +14903,37 @@ a.ui-button:active,
   box-shadow: 0 0 5px #666;
 }
 
+#mainNav.navbar-dark .navbar-collapse .navbar-sidenav,
+.navbar {
+  background: #161d25;
+}
+
+#mainNav.fixed-top.navbar-dark .sidenav-toggler {
+  background: #07090b;
+}
+
+#mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-second-level,
+#mainNav.navbar-dark .navbar-collapse .navbar-sidenav > .nav-item .sidenav-third-level {
+  background: #25313f;
+}
+
+.bg-primary {
+  background: #2093a5 !important;
+}
+
+.card {
+  border: none;
+}
+
+a {
+  color: #2093a5;
+}
+
+a:hover {
+  color: #1c8090;
+}
+
+.navbar-brand img {
+  width: 22px;
+}
+
