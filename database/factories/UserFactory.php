@@ -21,3 +21,47 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Story::class, function (Faker $faker) {
+    $title = $faker->sentence;
+
+    return [
+        'slug' => str_slug($title),
+        'title' => $title,
+        'summary' => $faker->paragraph,
+        'content' => $faker->text(800),
+        'author_id' => function() {
+            return factory('App\Author')->create()->id;
+        },
+        'category_id' => function() {
+            return factory('App\Category')->create()->id;
+        },
+        'reading_time' => $faker->randomDigitNotNull,
+        'cost' => $faker->randomDigitNotNull
+    ];
+});
+
+$factory->define(App\Author::class, function (Faker $faker) {
+
+    $name = $faker->name;
+    $died = $faker->year;
+    $born = $faker->year($died);
+
+    return [
+        'slug' => str_slug($name),
+        'name' => $name,
+        'born_in' => $born,
+        'died_in' => $died,
+        'life' => $faker->paragraph
+    ];
+});
+
+$factory->define(App\Category::class, function (Faker $faker) {
+    $name = $faker->word;
+
+    return [
+        'slug' => str_slug($name),
+        'name' => $name,
+        'sorting_order' => $faker->randomDigitNotNull
+    ];
+});

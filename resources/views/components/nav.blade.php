@@ -18,7 +18,7 @@
         </a>
         <ul class="sidenav-second-level collapse" id="stories">
           <li>
-            <a href="navbar.html">Add a story</a>
+            <a href="/stories/add">Add a story</a>
           </li>
           <li>
             <a href="navbar.html">Edit a story</a>
@@ -35,7 +35,7 @@
         </a>
         <ul class="sidenav-second-level collapse" id="authors">
           <li>
-            <a href="navbar.html">Add an author</a>
+            <a href="/authors/add">Add an author</a>
           </li>
           <li>
             <a href="navbar.html">Edit an author</a>
@@ -52,7 +52,7 @@
         </a>
         <ul class="sidenav-second-level collapse" id="categories">
           <li>
-            <a href="navbar.html">Add a category</a>
+            <a href="/categories/add">Add a category</a>
           </li>
           <li>
             <a href="navbar.html">Edit a category</a>

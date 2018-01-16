@@ -14937,3 +14937,23 @@ a:hover {
   width: 22px;
 }
 
+.btn:focus,
+.btn:active,
+a:focus,
+a:active,
+button:focus,
+button:active {
+  outline: none !important;
+}
+
+.btn-default {
+  background: #2093a5;
+  color: white;
+}
+
+.btn-default:hover,
+.btn-default:active,
+.btn-default:focus {
+  background: #1e8898;
+}
+
