@@ -20,6 +20,11 @@ class StoriesController extends Controller
         return $stories;
     }
 
+    public function app()
+    {
+        return Story::all();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -27,8 +32,8 @@ class StoriesController extends Controller
      */
     public function create()
     {
-        $authors = Author::all();
-        $categories = Category::all();
+        $authors = Author::orderBy('name')->get();
+        $categories = Category::orderBy('name')->get();
         return view('pages/stories/add', compact(['authors', 'categories']));
     }
 
@@ -40,6 +45,16 @@ class StoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|unique:stories|max:255',
+            'summary' => 'required',
+            'content' => 'required',
+            'author_id' => 'required',
+            'category_id' => 'required',
+            'reading_time' => 'required',
+            'cost' => 'required',
+        ]);
+
         $story = Story::create([
             'slug' => str_slug($request->title),
             'title' => $request->title,
@@ -51,7 +66,7 @@ class StoriesController extends Controller
             'cost' => $request->cost
         ]);
 
-        return $story;
+        return redirect()->back()->with('success', "$request->title has been successfully added!");
     }
 
     /**

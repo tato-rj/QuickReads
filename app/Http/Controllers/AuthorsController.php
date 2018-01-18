@@ -17,6 +17,11 @@ class AuthorsController extends Controller
         //
     }
 
+    public function app()
+    {
+        return Author::all();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,6 +40,11 @@ class AuthorsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|unique:authors|max:140',
+            'life' => 'required',
+        ]);
+
         $author = Author::create([
             'slug' => str_slug($request->name),
             'name' => $request->name,
@@ -43,7 +53,7 @@ class AuthorsController extends Controller
             'life' => $request->life
         ]);
 
-        return $author;
+        return redirect()->back()->with('success', "$request->name has been successfully added!");
     }
 
     /**

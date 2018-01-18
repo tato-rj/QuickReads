@@ -24,3 +24,10 @@ a:hover {
 .btn-default:hover, .btn-default:active, .btn-default:focus {
 	background: darken($brand-primary, 3);
 }
+
+.alert-container {
+	z-index: 10000;
+	position: fixed;
+	top: 1em;
+	left: 0;
+}

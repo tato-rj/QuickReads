@@ -17,9 +17,9 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-book"></i>
               </div>
-              <div class="mr-5">26 Stories</div>
+              <div class="mr-5">{{$stories_count}} Stories</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/app/stories">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -33,9 +33,9 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-vcard"></i>
               </div>
-              <div class="mr-5">11 Authors</div>
+              <div class="mr-5">{{$authors_count}} Authors</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/app/authors">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -49,9 +49,9 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-list"></i>
               </div>
-              <div class="mr-5">4 Categories</div>
+              <div class="mr-5">{{$categories_count}} Categories</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/app/categories">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -67,7 +67,7 @@
               </div>
               <div class="mr-5">78 Users</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" href="#">
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="#">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>

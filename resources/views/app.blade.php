@@ -17,6 +17,13 @@
 
   @include('components/footer')
   @include('components/modals/logout')
+  {{-- Feedback Messages --}}
+  @if($message = session('success'))
+    @include('components/alerts/success')
+  @endif
+  @if($errors->any())
+    @include('components/alerts/error')
+  @endif
 
   <script type="text/javascript" src="{{asset('js/app.js')}}"></script>
 
@@ -27,8 +34,13 @@
   <script type="text/javascript" src="{{asset('js/theme.min.js')}}"></script>
 
   <script type="text/javascript" src="{{asset('js/tables.min.js')}}"></script>
-  <script type="text/javascript" src="{{asset('js/charts.min.js')}}"></script>
+  {{-- <script type="text/javascript" src="{{asset('js/charts.min.js')}}"></script> --}}
 
+  <script type="text/javascript">
+    $('.alert .fa').on('click', function(){
+      $(this).parent().parent().remove();
+    });
+  </script>
   @yield('scripts')
 </body>
     

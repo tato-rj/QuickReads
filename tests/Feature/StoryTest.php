@@ -25,7 +25,9 @@ class StoryTest extends TestCase
     {
         $input = factory('App\Story')->make();
 
-        $this->post('/stories', $input->toArray());
+        $this->post('/stories', $input->toArray())
+            ->assertSessionHas('success');
+
         $this->assertDatabaseHas('stories', [
             'title' => $input->title
         ]);
@@ -36,7 +38,9 @@ class StoryTest extends TestCase
     {
         $input = factory('App\Author')->make();
 
-        $this->post('/authors', $input->toArray());
+        $this->post('/authors', $input->toArray())
+            ->assertSessionHas('success');
+
         $this->assertDatabaseHas('authors', [
             'name' => $input->name
         ]);
@@ -47,7 +51,9 @@ class StoryTest extends TestCase
     {
         $input = factory('App\Category')->make();
 
-        $this->post('/categories', $input->toArray());
+        $this->post('/categories', $input->toArray())
+            ->assertSessionHas('success');
+
         $this->assertDatabaseHas('categories', [
             'name' => $input->name
         ]);

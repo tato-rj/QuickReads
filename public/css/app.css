@@ -14903,6 +14903,14 @@ a.ui-button:active,
   box-shadow: 0 0 5px #666;
 }
 
+.w-100 {
+  width: 100%;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
 #mainNav.navbar-dark .navbar-collapse .navbar-sidenav,
 .navbar {
   background: #161d25;
@@ -14923,6 +14931,11 @@ a.ui-button:active,
 
 .card {
   border: none;
+}
+
+.scroll-to-top {
+  right: 1em;
+  bottom: 1em;
 }
 
 a {
@@ -14955,5 +14968,12 @@ button:active {
 .btn-default:active,
 .btn-default:focus {
   background: #1e8898;
+}
+
+.alert-container {
+  z-index: 10000;
+  position: fixed;
+  top: 1em;
+  left: 0;
 }
 

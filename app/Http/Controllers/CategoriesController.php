@@ -17,6 +17,11 @@ class CategoriesController extends Controller
         //
     }
 
+    public function app()
+    {
+        return Category::all();
+    }
+
     /**
      * Show the form for creating a new resource.
      *
@@ -35,12 +40,16 @@ class CategoriesController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'name' => 'required|unique:categories|max:120'
+        ]);
+
         $category = Category::create([
             'slug' => str_slug($request->name),
             'name' => $request->name
         ]);
 
-        return $category;
+        return redirect()->back()->with('success', "$request->name has been successfully added!");
     }
 
     /**

@@ -9,52 +9,52 @@
     @slot('description')Add a new story 
     @endslot
   @endcomponent
-    <form method="POST" action="/stories" class="col-6 mx-auto my-4">
+    <form method="POST" action="/stories" class="col-lg-6 col-sm-10 col-xs-12 mx-auto my-4">
       {{csrf_field()}}
       {{-- Title --}}
       <div class="form-group">
-        <input type="text" class="form-control" name="title" placeholder="Title">
+        <input type="text" class="form-control" name="title" placeholder="Title" value="{{ old('title') }}" required>
       </div>
       {{-- Summary --}}
       <div class="form-group">
-        <textarea class="form-control" rows="4" name="summary" placeholder="Summary"></textarea>
+        <textarea class="form-control" rows="4" name="summary" placeholder="Summary" required>{{ old('summary') }}</textarea>
       </div>
       {{-- Content --}}
       <div class="form-group">
-        <textarea class="form-control" rows="12" name="content" placeholder="Content"></textarea>
+        <textarea class="form-control" rows="12" name="content" placeholder="Content" required>{{ old('content') }}</textarea>
       </div>
       <div class="row">
         <div class="col-6">
           <div class="form-group">
             {{-- Reading Time --}}
-            <input type="text" class="form-control" name="reading_time" maxlength="2" placeholder="Reading time">
+            <input type="text" class="form-control" name="reading_time" maxlength="3" placeholder="Reading time" value="{{ old('reading_time') }}" required>
           </div>
           <div class="form-group">
             {{-- Author --}}
-            <select name="author_id" class="form-control">
-              <option selected>Author</option>
+            <select name="author_id" class="form-control" required>
+              <option selected disabled>Author</option>
               @foreach($authors as $author)
-                <option value="{{$author->id}}">{{$author->name}}</option>
+                <option value="{{$author->id}}" {{ (old('author_id') == $author->id) ? 'selected' : '' }}>{{$author->name}}</option>
               @endforeach
             </select>
           </div>
           <div class="form-group">
             {{-- Category --}}
-            <select name="category_id" class="form-control">
-              <option selected>Category</option>
+            <select name="category_id" class="form-control" required>
+              <option selected disabled>Category</option>
               @foreach($categories as $category)
-                <option value="{{$category->id}}">{{$category->name}}</option>
+                <option value="{{$category->id}}" {{ (old('category_id') == $category->id) ? 'selected' : '' }}>{{$category->name}}</option>
               @endforeach
             </select>
           </div>
           <div class="form-group">
             {{-- Cost --}}
-            <select name="cost" class="form-control">
-              <option selected>Cost</option>
-              <option value="Free">Free</option>
-              <option value="1">1 Coin</option>
-              <option value="2">2 Coins</option>
-              <option value="5">5 Coins</option>
+            <select name="cost" class="form-control" required>
+              <option selected disabled>Cost</option>
+              <option value="Free" {{ (old('cost') == 'free') ? 'selected' : '' }}>Free</option>
+              <option value="1" {{ (old('cost') == '1') ? 'selected' : '' }}>1 Coin</option>
+              <option value="2" {{ (old('cost') == '2') ? 'selected' : '' }}>2 Coins</option>
+              <option value="5" {{ (old('cost') == '5') ? 'selected' : '' }}>5 Coins</option>
             </select>
           </div>
         </div>
@@ -71,7 +71,6 @@
       <div class="text-center my-5">
         <button type="submit" class="btn btn-block btn-default">Add Story</button>
       </div>
-      
     </form>   
   </div>
 </div>

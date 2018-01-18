@@ -18,7 +18,7 @@ class CreateStoriesTable extends Migration
             $table->string('slug');
             $table->string('title');
             $table->text('summary');
-            $table->text('content');
+            $table->longText('content');
             $table->unsignedInteger('author_id');
             $table->unsignedInteger('category_id');
             $table->string('reading_time');
