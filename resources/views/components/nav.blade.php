@@ -21,7 +21,7 @@
             <a href="/stories/add">Add a story</a>
           </li>
           <li>
-            <a href="navbar.html">Edit a story</a>
+            <a href="/stories/edit">Edit a story</a>
           </li>
           <li>
             <a href="navbar.html">Remove a story</a>
@@ -38,7 +38,7 @@
             <a href="/authors/add">Add an author</a>
           </li>
           <li>
-            <a href="navbar.html">Edit an author</a>
+            <a href="/authors/edit">Edit an author</a>
           </li>
           <li>
             <a href="navbar.html">Remove an author</a>
@@ -55,7 +55,7 @@
             <a href="/categories/add">Add a category</a>
           </li>
           <li>
-            <a href="navbar.html">Edit a category</a>
+            <a href="/categories/edit">Edit a category</a>
           </li>
           <li>
             <a href="navbar.html">Remove a category</a>

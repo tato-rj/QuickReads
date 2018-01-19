@@ -42,7 +42,7 @@ class AuthorsController extends Controller
     {
         $request->validate([
             'name' => 'required|unique:authors|max:140',
-            'life' => 'required',
+            'life' => 'required'
         ]);
 
         $author = Author::create([
@@ -73,9 +73,16 @@ class AuthorsController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
+    public function select()
+    {
+        $authors = Author::orderBy('name')->get();
+        return view('pages/authors/edit', compact(['authors']));
+    }
+
     public function edit(Author $author)
     {
-        //
+        $authors = Author::orderBy('name')->get();
+        return view('pages/authors/edit', compact(['author', 'authors']));
     }
 
     /**
@@ -87,7 +94,22 @@ class AuthorsController extends Controller
      */
     public function update(Request $request, Author $author)
     {
-        //
+        $slug = str_slug($request->name);
+
+        $request->validate([
+            'name' => 'required|max:140',
+            'life' => 'required'
+        ]);
+
+        $author->update([
+            'slug' => $slug,
+            'name' => $request->name,
+            'born_in' => $request->born_in,
+            'died_in' => $request->died_in,
+            'life' => $request->life
+        ]);
+
+        return redirect("/authors/edit/$slug")->with('success', "$request->name has been updated");
     }
 
     /**

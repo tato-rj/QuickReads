@@ -14938,6 +14938,10 @@ a.ui-button:active,
   bottom: 1em;
 }
 
+textarea {
+  overflow-x: hidden;
+}
+
 a {
   color: #2093a5;
 }
@@ -14975,5 +14979,9 @@ button:active {
   position: fixed;
   top: 1em;
   left: 0;
+}
+
+.text-brand {
+  color: #2093a5;
 }
 

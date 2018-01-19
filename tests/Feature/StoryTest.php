@@ -34,28 +34,24 @@ class StoryTest extends TestCase
     }
 
     /** @test */
-    public function the_admin_can_add_a_new_author()
+    public function the_admin_can_edit_a_story()
     {
-        $input = factory('App\Author')->make();
+        $story = factory('App\Story')->create();
 
-        $this->post('/authors', $input->toArray())
-            ->assertSessionHas('success');
+        $this->patch('/stories/'.$story->slug, [
+            'title' => 'New title',
+            'content' => $story->content,
+            'summary' => $story->summary,
+            'reading_time' =>$story->reading_time,
+            'author_id' => $story->author_id,
+            'category_id' => $story->category_id,
+            'cost' => $story->cost
+        ])->assertSessionHas('success');
 
-        $this->assertDatabaseHas('authors', [
-            'name' => $input->name
-        ]);
-    }
-
-    /** @test */
-    public function the_admin_can_add_a_new_category()
-    {
-        $input = factory('App\Category')->make();
-
-        $this->post('/categories', $input->toArray())
-            ->assertSessionHas('success');
-
-        $this->assertDatabaseHas('categories', [
-            'name' => $input->name
+        $this->assertDatabaseHas('stories', [
+            'title' => 'New title'
+        ])->assertDatabaseMissing('stories', [
+            'title' => $story->title
         ]);
     }
 }
