@@ -1,3 +1,7 @@
+textarea {
+	overflow-x: hidden;
+}
+
 a {
 	color: $brand-primary;
 }
@@ -30,4 +34,8 @@ a:hover {
 	position: fixed;
 	top: 1em;
 	left: 0;
+}
+
+.text-brand {
+	color: $brand-primary;
 }

@@ -16,8 +16,7 @@ class StoriesController extends Controller
      */
     public function index()
     {
-        $stories = Story::latest()->get();
-        return $stories;
+
     }
 
     public function app()
@@ -86,9 +85,19 @@ class StoriesController extends Controller
      * @param  \App\Story  $story
      * @return \Illuminate\Http\Response
      */
+    public function select()
+    {
+
+        $stories = Story::orderBy('title')->get();
+        return view('pages/stories/edit', compact(['stories']));
+    }
+
     public function edit(Story $story)
     {
-        //
+        $authors = Author::orderBy('name')->get();
+        $categories = Category::orderBy('name')->get();
+        $stories = Story::orderBy('title')->get();
+        return view('pages/stories/edit', compact(['stories', 'story', 'authors', 'categories']));
     }
 
     /**
@@ -100,7 +109,30 @@ class StoriesController extends Controller
      */
     public function update(Request $request, Story $story)
     {
-        //
+        $slug = str_slug($request->title);
+
+        $request->validate([
+            'title' => 'required|max:255',
+            'summary' => 'required',
+            'content' => 'required',
+            'author_id' => 'required',
+            'category_id' => 'required',
+            'reading_time' => 'required',
+            'cost' => 'required',
+        ]);
+
+        $story->update([
+            'slug' => $slug,
+            'title' => $request->title,
+            'summary' => $request->summary,
+            'content' => $request->content,
+            'author_id' => $request->author_id,
+            'category_id' => $request->category_id,
+            'reading_time' => $request->reading_time,
+            'cost' => $request->cost
+        ]);
+
+        return redirect("/stories/edit/$slug")->with('success', "$request->title has been updated");
     }
 
     /**

@@ -69,9 +69,17 @@ class CategoriesController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
+    public function select()
+    {
+
+        $categories = Category::orderBy('name')->get();
+        return view('pages/categories/edit', compact(['categories']));
+    }
+
     public function edit(Category $category)
     {
-        //
+        $categories = Category::orderBy('name')->get();
+        return view('pages/categories/edit', compact(['category', 'categories']));
     }
 
     /**
@@ -83,7 +91,19 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        //
+        $slug = str_slug($request->name);
+
+        $request->validate([
+            'name' => 'required|max:120'
+        ]);
+
+        $category->update([
+            'slug' => $slug,
+            'name' => $request->name,
+            'sorting_order' => $request->sorting_order
+        ]);
+
+        return redirect("/categories/edit/$slug")->with('success', "$request->name has been updated");
     }
 
     /**
