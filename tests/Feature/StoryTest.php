@@ -3,6 +3,8 @@
 namespace Tests\Feature;
 
 use Tests\TestCase;
+use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
@@ -22,6 +24,26 @@ class StoryTest extends TestCase
         $this->assertDatabaseHas('stories', [
             'title' => $input->title
         ]);
+    }
+
+    /** @test */
+    public function the_admin_can_upload_a_cover_image_when_adding_a_new_story()
+    {
+        $faker = \Faker\Factory::create();
+        $title = $faker->sentence;
+        $slug = str_slug($title);
+
+        $this->post('/stories', [
+            'slug' => $slug,
+            'title' => $title,
+            'summary' => $faker->sentence,
+            'content' => $faker->paragraph,
+            'author_id' => $faker->randomDigitNotNull,
+            'category_id' => $faker->randomDigitNotNull,
+            'reading_time' => $faker->randomDigitNotNull,
+            'cost' => $faker->randomDigitNotNull,
+            'image' => UploadedFile::fake()->create('image.jpeg', 200)
+        ])->assertStatus(302);
     }
 
     /** @test */
