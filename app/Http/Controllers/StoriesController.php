@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Story;
 use App\Author;
 use App\Category;
+use App\Http\Requests\Upload;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Storage;
 
 class StoriesController extends Controller
 {
@@ -65,9 +68,18 @@ class StoriesController extends Controller
             'cost' => $request->cost
         ]);
 
+        $this->saveFile($request);
+
         return redirect()->back()->with('success', "$request->title has been successfully added!");
     }
 
+    public function saveFile($request)
+    {
+        if ($request->file('image')) {
+            $slug = str_slug($request->title);
+            (new Upload($request->file('image')))->name($slug)->path("/public/stories/$slug/")->save();            
+        }
+    }
     /**
      * Display the specified resource.
      *
@@ -131,6 +143,8 @@ class StoriesController extends Controller
             'cost' => $request->cost
         ]);
 
+        $this->saveFile($request);
+
         return redirect("/stories/edit/$slug")->with('success', "$request->title has been updated");
     }
 
@@ -148,6 +162,7 @@ class StoriesController extends Controller
 
     public function destroy(Story $story)
     {
+        File::deleteDirectory("storage/stories/$story->slug");
         $story->delete();
         return redirect()->back()->with('success', "$story->title has been successfully removed!");
     }

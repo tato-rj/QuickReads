@@ -9,7 +9,7 @@
     @slot('description')Add a new story 
     @endslot
   @endcomponent
-    <form method="POST" action="/stories" class="col-lg-6 col-sm-10 col-xs-12 mx-auto my-4">
+    <form method="POST" action="/stories" class="col-lg-6 col-sm-10 col-xs-12 mx-auto my-4" enctype="multipart/form-data">
       {{csrf_field()}}
       {{-- Title --}}
       <div class="form-group">
@@ -60,10 +60,10 @@
         </div>
         <div class="col-6">
           <div id="upload-box" class="card">
-            <input type="file" id="image" style="display:none;" />
+            <input type="file" id="image" name="image" style="display:none;" />
             <img class="card-img-top" id="cover-img" src="{{ asset('images/no-image.png') }}" alt="Not an image">
             <div class="card-body text-center">
-              <button type="button" id="upload-button" class="btn btn-default"><i class="fa fa-cloud-upload mr-1" aria-hidden="true"></i>Upload</button>
+              <button type="button" id="upload-button" class="btn btn-warning"><i class="fa fa-cloud-upload mr-1" aria-hidden="true"></i>Upload</button>
             </div>
           </div>         
         </div>
@@ -75,4 +75,25 @@
   </div>
 </div>
 
+@endsection
+
+@section('scripts')
+<script type="text/javascript">
+$('#upload-button').on('click', function() {
+  $('input#image').click();
+});
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#cover-img').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("input#image").change(function() {
+  readURL(this);
+});
+</script>
 @endsection

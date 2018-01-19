@@ -10,7 +10,7 @@
     @endslot
   @endcomponent
 
-    <form id="select-form" action="/stories/edit/" class="col-lg-8 col-sm-10 col-xs-12 mx-auto my-4">
+    <form id="select-form" action="/stories/edit/" class="col-lg-8 col-sm-10 col-xs-12 mx-auto my-4" enctype="multipart/form-data">
       <div class="form-group">
         {{-- Stories --}}
         <select class="form-control" onchange="select()">
@@ -24,7 +24,7 @@
 
     @if(isset($story))
 
-    <form method="POST" action="/stories/{{$story->slug}}" class="col-lg-8 col-sm-10 col-xs-12 mx-auto my-5">
+    <form method="POST" action="/stories/{{$story->slug}}" class="col-lg-8 col-sm-10 col-xs-12 mx-auto my-5" enctype="multipart/form-data">
       {{csrf_field()}}
       {{method_field('PATCH')}}
       {{-- Title --}}
@@ -97,10 +97,10 @@
         </div>
         <div class="col-6">
           <div id="upload-box" class="card">
-            <input type="file" id="image" style="display:none;" />
-            <img class="card-img-top" id="cover-img" src="{{ asset('images/no-image.png') }}" alt="Not an image">
+            <input type="file" id="image" name="image" style="display:none;" />
+            <img class="card-img-top" id="cover-img" src="{{ asset($story->image()) }}" alt="Not an image">
             <div class="card-body text-center">
-              <button type="button" id="upload-button" class="btn btn-default"><i class="fa fa-cloud-upload mr-1" aria-hidden="true"></i>Upload</button>
+              <button type="button" id="upload-button" class="btn btn-warning"><i class="fa fa-cloud-upload mr-1" aria-hidden="true"></i>Upload</button>
             </div>
           </div>         
         </div>
@@ -123,5 +123,24 @@ function select()
   $slug = $('#select-form select option:selected').attr('data-slug');
   window.location = $form.attr('action')+$slug;
 }
+</script>
+
+<script type="text/javascript">
+$('#upload-button').on('click', function() {
+  $('input#image').click();
+});
+function readURL(input) {
+  if (input.files && input.files[0]) {
+    var reader = new FileReader();
+    reader.onload = function(e) {
+      $('#cover-img').attr('src', e.target.result);
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+$("input#image").change(function() {
+  readURL(this);
+});
 </script>
 @endsection
