@@ -24,7 +24,7 @@
             <a href="/stories/edit">Edit a story</a>
           </li>
           <li>
-            <a href="navbar.html">Remove a story</a>
+            <a href="/stories/delete">Remove a story</a>
           </li>
         </ul>
       </li>
@@ -41,7 +41,7 @@
             <a href="/authors/edit">Edit an author</a>
           </li>
           <li>
-            <a href="navbar.html">Remove an author</a>
+            <a href="/authors/delete">Remove an author</a>
           </li>
         </ul>
       </li>
@@ -58,7 +58,7 @@
             <a href="/categories/edit">Edit a category</a>
           </li>
           <li>
-            <a href="navbar.html">Remove a category</a>
+            <a href="/categories/delete">Remove a category</a>
           </li>
         </ul>
       </li>

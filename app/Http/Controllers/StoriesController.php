@@ -87,7 +87,6 @@ class StoriesController extends Controller
      */
     public function select()
     {
-
         $stories = Story::orderBy('title')->get();
         return view('pages/stories/edit', compact(['stories']));
     }
@@ -141,8 +140,15 @@ class StoriesController extends Controller
      * @param  \App\Story  $story
      * @return \Illuminate\Http\Response
      */
+    public function delete()
+    {
+        $stories = Story::orderBy('title')->get();
+        return view('pages/stories/delete', compact(['stories']));       
+    }
+
     public function destroy(Story $story)
     {
-        //
+        $story->delete();
+        return redirect()->back()->with('success', "$story->title has been successfully removed!");
     }
 }
