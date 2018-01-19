@@ -45,4 +45,16 @@ class StoryTest extends TestCase
             'title' => $story->title
         ]);
     }
+
+    /** @test */
+    public function the_admin_can_remove_a_story()
+    {
+        $story = factory('App\Story')->create();
+
+        $this->delete('/stories/'.$story->slug)->assertSessionHas('success');
+
+        $this->assertDatabaseMissing('stories', [
+            'title' => $story->title
+        ]);
+    }
 }

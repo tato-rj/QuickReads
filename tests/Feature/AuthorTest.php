@@ -42,4 +42,16 @@ class AuthorTest extends TestCase
             'name' => $author->name
         ]);
     }
+
+    /** @test */
+    public function the_admin_can_remove_an_author()
+    {
+        $author = factory('App\Author')->create();
+
+        $this->delete('/authors/'.$author->slug)->assertSessionHas('success');
+
+        $this->assertDatabaseMissing('authors', [
+            'name' => $author->name
+        ]);
+    }
 }

@@ -118,8 +118,15 @@ class AuthorsController extends Controller
      * @param  \App\Author  $author
      * @return \Illuminate\Http\Response
      */
+    public function delete()
+    {
+        $authors = Author::orderBy('name')->get();
+        return view('pages/authors/delete', compact(['authors']));        
+    }
+    
     public function destroy(Author $author)
     {
-        //
+        $author->delete();
+        return redirect()->back()->with('success', "$author->name has been successfully removed!");
     }
 }

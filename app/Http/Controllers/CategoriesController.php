@@ -112,8 +112,15 @@ class CategoriesController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
+    public function delete()
+    {
+        $categories = Category::orderBy('name')->get();
+        return view('pages/categories/delete', compact(['categories']));        
+    }
+    
     public function destroy(Category $category)
     {
-        //
+        $category->delete();
+        return redirect()->back()->with('success', "$category->name has been successfully removed!");
     }
 }

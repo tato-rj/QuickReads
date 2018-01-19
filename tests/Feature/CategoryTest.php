@@ -40,4 +40,16 @@ class CategoryTest extends TestCase
             'name' => $category->name
         ]);
     }
+
+    /** @test */
+    public function the_admin_can_remove_a_category()
+    {
+        $category = factory('App\Category')->create();
+
+        $this->delete('/categories/'.$category->slug)->assertSessionHas('success');
+
+        $this->assertDatabaseMissing('categories', [
+            'name' => $category->name
+        ]);
+    }
 }
