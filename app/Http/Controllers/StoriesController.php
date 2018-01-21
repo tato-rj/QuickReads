@@ -24,7 +24,7 @@ class StoriesController extends Controller
 
     public function app()
     {
-        return Story::all();
+        return Category::with('stories')->get();
     }
 
     /**

@@ -2,16 +2,23 @@
 
 namespace App;
 
+use App\Author;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
 
 class Story extends Model
 {
 	protected $guarded = [];
+    protected $with = ['author'];
 	
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function author()
+    {
+        return $this->belongsTo(Author::class);
     }
 
     public function image()

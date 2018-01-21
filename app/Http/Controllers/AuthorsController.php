@@ -19,7 +19,7 @@ class AuthorsController extends Controller
 
     public function app()
     {
-        return Author::all();
+        return Author::with('stories')->get();
     }
 
     /**
