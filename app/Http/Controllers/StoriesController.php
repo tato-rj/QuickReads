@@ -24,7 +24,14 @@ class StoriesController extends Controller
 
     public function app()
     {
-        return Category::with('stories')->get();
+        $categories = Category::with('stories')->get();
+        foreach ($categories as $category) {
+            foreach ($category->stories as $story) {
+                $story->setAttribute('average_rating', $story->averageRating());
+            }
+        }
+
+        return $categories;
     }
 
     /**

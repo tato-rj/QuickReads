@@ -8,6 +8,12 @@ Route::get('/stories/edit', 'StoriesController@select');
 Route::get('/stories/edit/{story}', 'StoriesController@edit');
 Route::get('/stories/delete', 'StoriesController@delete');
 
+// Comments
+Route::post('/stories/comments', 'CommentsController@store');
+
+// Ratings
+Route::post('/stories/ratings', 'RatingsController@store');
+
 Route::post('/stories', 'StoriesController@store');
 Route::patch('/stories/{story}', 'StoriesController@update');
 Route::delete('/stories/{story}', 'StoriesController@destroy');
@@ -36,3 +42,4 @@ Route::delete('/categories/{category}', 'CategoriesController@destroy');
 Route::get('/app/stories', 'StoriesController@app');
 Route::get('/app/categories', 'CategoriesController@app');
 Route::get('/app/authors', 'AuthorsController@app');
+Route::get('/app/users', 'UsersController@app');

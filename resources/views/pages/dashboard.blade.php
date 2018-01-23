@@ -65,9 +65,9 @@
               <div class="card-body-icon">
                 <i class="fa fa-fw fa-users"></i>
               </div>
-              <div class="mr-5">78 Users</div>
+              <div class="mr-5">{{$users_count}} Users</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" target="_blank" href="#">
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/app/users">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
