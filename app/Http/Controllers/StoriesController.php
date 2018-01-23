@@ -152,7 +152,7 @@ class StoriesController extends Controller
 
         $this->saveFile($request);
 
-        return redirect("/stories/edit/$slug")->with('success', "$request->title has been updated");
+        return redirect("/quickreads/stories/edit/$slug")->with('success', "$request->title has been updated");
     }
 
     /**

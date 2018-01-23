@@ -6,7 +6,7 @@ Route::get('/quickreads', 'HomeController@admin');
 
 // Stories
 Route::get('/quickreads/stories/add', 'StoriesController@create');
-Route::get('/stories/edit', 'StoriesController@select');
+Route::get('/quickreads/stories/edit', 'StoriesController@select');
 Route::get('/quickreads/stories/edit/{story}', 'StoriesController@edit');
 Route::get('/quickreads/stories/delete', 'StoriesController@delete');
 

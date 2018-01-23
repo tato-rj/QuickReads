@@ -24,7 +24,7 @@
 
     @if(isset($author))
 
-    <form method="POST" action="/authors/{{$author->slug}}" class="col-lg-6 col-sm-10 col-xs-12 mx-auto my-5">
+    <form method="POST" action="/quickreads/authors/{{$author->slug}}" class="col-lg-6 col-sm-10 col-xs-12 mx-auto my-5">
       {{csrf_field()}}
       {{method_field('PATCH')}}
       {{-- Name --}}

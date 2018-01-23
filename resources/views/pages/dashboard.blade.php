@@ -19,7 +19,7 @@
               </div>
               <div class="mr-5">{{$stories_count}} Stories</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/app/stories">
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/quickreads/app/stories">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -35,7 +35,7 @@
               </div>
               <div class="mr-5">{{$authors_count}} Authors</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/app/authors">
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/quickreads/app/authors">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -51,7 +51,7 @@
               </div>
               <div class="mr-5">{{$categories_count}} Categories</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/app/categories">
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/quickreads/app/categories">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>
@@ -67,7 +67,7 @@
               </div>
               <div class="mr-5">{{$users_count}} Users</div>
             </div>
-            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/app/users">
+            <a class="card-footer text-white clearfix small z-1" target="_blank" href="/quickreads/app/users">
               <span class="float-left">View Details</span>
               <span class="float-right">
                 <i class="fa fa-angle-right"></i>

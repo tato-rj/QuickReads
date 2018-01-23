@@ -109,7 +109,7 @@ class AuthorsController extends Controller
             'life' => $request->life
         ]);
 
-        return redirect("/authors/edit/$slug")->with('success', "$request->name has been updated");
+        return redirect("/quickreads/authors/edit/$slug")->with('success', "$request->name has been updated");
     }
 
     /**

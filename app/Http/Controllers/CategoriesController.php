@@ -103,7 +103,7 @@ class CategoriesController extends Controller
             'sorting_order' => $request->sorting_order
         ]);
 
-        return redirect("/categories/edit/$slug")->with('success', "$request->name has been updated");
+        return redirect("/quickreads/categories/edit/$slug")->with('success', "$request->name has been updated");
     }
 
     /**

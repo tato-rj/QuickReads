@@ -24,7 +24,7 @@
 
     @if(isset($story))
 
-    <form method="POST" action="/stories/{{$story->slug}}" class="col-lg-8 col-sm-10 col-xs-12 mx-auto my-5" enctype="multipart/form-data">
+    <form method="POST" action="/quickreads/stories/{{$story->slug}}" class="col-lg-8 col-sm-10 col-xs-12 mx-auto my-5" enctype="multipart/form-data">
       {{csrf_field()}}
       {{method_field('PATCH')}}
       {{-- Title --}}
