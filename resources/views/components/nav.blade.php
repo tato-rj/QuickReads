@@ -1,12 +1,12 @@
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
-  <a class="navbar-brand" href="/"><img src="{{asset('images/icon.svg')}}" class="mr-2">{{config('app.name')}}</a>
+  <a class="navbar-brand" href="/quickreads/"><img src="{{asset('images/icon.svg')}}" class="mr-2">{{config('app.name')}}</a>
   <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarResponsive">
     <ul class="navbar-nav navbar-sidenav">
       <li class="nav-item">
-        <a class="nav-link" href="/">
+        <a class="nav-link" href="/quickreads/">
           <i class="fa fa-fw fa-dashboard"></i>
           <span class="nav-link-text">Dashboard</span>
         </a>
@@ -18,13 +18,13 @@
         </a>
         <ul class="sidenav-second-level collapse" id="stories">
           <li>
-            <a href="/stories/add">Add a story</a>
+            <a href="/quickreads/stories/add">Add a story</a>
           </li>
           <li>
-            <a href="/stories/edit">Edit a story</a>
+            <a href="/quickreads/stories/edit">Edit a story</a>
           </li>
           <li>
-            <a href="/stories/delete">Remove a story</a>
+            <a href="/quickreads/stories/delete">Remove a story</a>
           </li>
         </ul>
       </li>
@@ -35,13 +35,13 @@
         </a>
         <ul class="sidenav-second-level collapse" id="authors">
           <li>
-            <a href="/authors/add">Add an author</a>
+            <a href="/quickreads/authors/add">Add an author</a>
           </li>
           <li>
-            <a href="/authors/edit">Edit an author</a>
+            <a href="/quickreads/authors/edit">Edit an author</a>
           </li>
           <li>
-            <a href="/authors/delete">Remove an author</a>
+            <a href="/quickreads/authors/delete">Remove an author</a>
           </li>
         </ul>
       </li>
@@ -52,13 +52,13 @@
         </a>
         <ul class="sidenav-second-level collapse" id="categories">
           <li>
-            <a href="/categories/add">Add a category</a>
+            <a href="/quickreads/categories/add">Add a category</a>
           </li>
           <li>
-            <a href="/categories/edit">Edit a category</a>
+            <a href="/quickreads/categories/edit">Edit a category</a>
           </li>
           <li>
-            <a href="/categories/delete">Remove a category</a>
+            <a href="/quickreads/categories/delete">Remove a category</a>
           </li>
         </ul>
       </li>

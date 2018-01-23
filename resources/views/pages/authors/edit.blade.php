@@ -10,7 +10,7 @@
     @endslot
   @endcomponent
 
-    <form id="select-form" action="/authors/edit/" class="col-lg-6 col-sm-10 col-xs-12 mx-auto my-4">
+    <form id="select-form" action="/quickreads/authors/edit/" class="col-lg-6 col-sm-10 col-xs-12 mx-auto my-4">
       <div class="form-group">
         {{-- Stories --}}
         <select class="form-control" onchange="select()">

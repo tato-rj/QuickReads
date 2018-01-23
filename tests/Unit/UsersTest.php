@@ -21,7 +21,7 @@ class UsersTest extends TestCase
         $story = factory('App\Story')->create();
         $body = $faker->paragraph;
 
-        $this->post("/stories/comments", [
+        $this->post("/quickreads/stories/comments", [
         	'user_id' => $user->id,
         	'story_id' => $story->id,
         	'body' => $body
@@ -39,7 +39,7 @@ class UsersTest extends TestCase
         $story = factory('App\Story')->create();
         $score = '4';
 
-        $this->post("/stories/ratings", [
+        $this->post("/quickreads/stories/ratings", [
         	'user_id' => $user->id,
         	'story_id' => $story->id,
         	'score' => $score

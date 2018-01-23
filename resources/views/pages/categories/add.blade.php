@@ -9,7 +9,7 @@
     @slot('description')Add a new category 
     @endslot
   @endcomponent
-    <form method="POST" action="/categories" class="col-lg-6 col-sm-10 col-xs-12 mx-auto my-4">
+    <form method="POST" action="/quickreads/categories" class="col-lg-6 col-sm-10 col-xs-12 mx-auto my-4">
       {{csrf_field()}}
       {{-- Name --}}
       <div class="form-group">

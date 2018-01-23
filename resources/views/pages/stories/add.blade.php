@@ -9,7 +9,7 @@
     @slot('description')Add a new story 
     @endslot
   @endcomponent
-    <form method="POST" action="/stories" class="col-lg-6 col-sm-10 col-xs-12 mx-auto my-4" enctype="multipart/form-data">
+    <form method="POST" action="/quickreads/stories" class="col-lg-6 col-sm-10 col-xs-12 mx-auto my-4" enctype="multipart/form-data">
       {{csrf_field()}}
       {{-- Title --}}
       <div class="form-group">

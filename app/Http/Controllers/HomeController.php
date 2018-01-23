@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+	public function leftlane()
+	{
+		return view('leftlane/page');
+	}
+
 	public function admin()
 	{
 		$stories_count = Story::count();

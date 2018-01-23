@@ -16,7 +16,7 @@ class AuthorTest extends TestCase
     {
         $input = factory('App\Author')->make();
 
-        $this->post('/authors', $input->toArray())
+        $this->post('/quickreads/authors', $input->toArray())
             ->assertSessionHas('success');
 
         $this->assertDatabaseHas('authors', [
@@ -29,7 +29,7 @@ class AuthorTest extends TestCase
     {
         $author = factory('App\Author')->create();
 
-        $this->patch('/authors/'.$author->slug, [
+        $this->patch('/quickreads/authors/'.$author->slug, [
             'name' => 'New name',
             'life' => $author->life,
             'died_in' => $author->died_in,
@@ -48,7 +48,7 @@ class AuthorTest extends TestCase
     {
         $author = factory('App\Author')->create();
 
-        $this->delete('/authors/'.$author->slug)->assertSessionHas('success');
+        $this->delete('/quickreads/authors/'.$author->slug)->assertSessionHas('success');
 
         $this->assertDatabaseMissing('authors', [
             'name' => $author->name

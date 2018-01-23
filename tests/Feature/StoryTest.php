@@ -18,7 +18,7 @@ class StoryTest extends TestCase
     {
         $input = factory('App\Story')->make();
 
-        $this->post('/stories', $input->toArray())
+        $this->post('/quickreads/stories', $input->toArray())
             ->assertSessionHas('success');
 
         $this->assertDatabaseHas('stories', [
@@ -33,7 +33,7 @@ class StoryTest extends TestCase
         $title = $faker->sentence;
         $slug = str_slug($title);
 
-        $this->post('/stories', [
+        $this->post('/quickreads/stories', [
             'slug' => $slug,
             'title' => $title,
             'summary' => $faker->sentence,
@@ -51,7 +51,7 @@ class StoryTest extends TestCase
     {
         $story = factory('App\Story')->create();
 
-        $this->patch('/stories/'.$story->slug, [
+        $this->patch('/quickreads/stories/'.$story->slug, [
             'title' => 'New title',
             'content' => $story->content,
             'summary' => $story->summary,
@@ -73,7 +73,7 @@ class StoryTest extends TestCase
     {
         $story = factory('App\Story')->create();
 
-        $this->delete('/stories/'.$story->slug)->assertSessionHas('success');
+        $this->delete('/quickreads/stories/'.$story->slug)->assertSessionHas('success');
 
         $this->assertDatabaseMissing('stories', [
             'title' => $story->title

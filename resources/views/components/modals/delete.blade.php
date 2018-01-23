@@ -12,7 +12,7 @@
         <p class="text-danger"><small>This action cannot be undone</small></p>
       </div>
       <div class="modal-footer">
-        <form method="POST" action="/{{$slot}}/">
+        <form method="POST" action="/quickreads/{{$slot}}/">
           {{csrf_field()}}
           {{method_field('DELETE')}}
           <input type="hidden" name="slug" value="">

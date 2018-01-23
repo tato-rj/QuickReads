@@ -1,45 +1,47 @@
 <?php
 
-Route::get('/', 'HomeController@admin');
+Route::get('/', 'HomeController@leftlane');
+
+Route::get('/quickreads', 'HomeController@admin');
 
 // Stories
-Route::get('/stories/add', 'StoriesController@create');
+Route::get('/quickreads/stories/add', 'StoriesController@create');
 Route::get('/stories/edit', 'StoriesController@select');
-Route::get('/stories/edit/{story}', 'StoriesController@edit');
-Route::get('/stories/delete', 'StoriesController@delete');
+Route::get('/quickreads/stories/edit/{story}', 'StoriesController@edit');
+Route::get('/quickreads/stories/delete', 'StoriesController@delete');
 
 // Comments
-Route::post('/stories/comments', 'CommentsController@store');
+Route::post('/quickreads/stories/comments', 'CommentsController@store');
 
 // Ratings
-Route::post('/stories/ratings', 'RatingsController@store');
+Route::post('/quickreads/stories/ratings', 'RatingsController@store');
 
-Route::post('/stories', 'StoriesController@store');
-Route::patch('/stories/{story}', 'StoriesController@update');
-Route::delete('/stories/{story}', 'StoriesController@destroy');
+Route::post('/quickreads/stories', 'StoriesController@store');
+Route::patch('/quickreads/stories/{story}', 'StoriesController@update');
+Route::delete('/quickreads/stories/{story}', 'StoriesController@destroy');
 
 // Authors
-Route::get('/authors/add', 'AuthorsController@create');
-Route::get('/authors/edit', 'AuthorsController@select');
-Route::get('/authors/edit/{author}', 'AuthorsController@edit');
-Route::get('/authors/delete', 'AuthorsController@delete');
+Route::get('/quickreads/authors/add', 'AuthorsController@create');
+Route::get('/quickreads/authors/edit', 'AuthorsController@select');
+Route::get('/quickreads/authors/edit/{author}', 'AuthorsController@edit');
+Route::get('/quickreads/authors/delete', 'AuthorsController@delete');
 
-Route::post('/authors', 'AuthorsController@store');
-Route::patch('/authors/{author}', 'AuthorsController@update');
-Route::delete('/authors/{author}', 'AuthorsController@destroy');
+Route::post('/quickreads/authors', 'AuthorsController@store');
+Route::patch('/quickreads/authors/{author}', 'AuthorsController@update');
+Route::delete('/quickreads/authors/{author}', 'AuthorsController@destroy');
 
 // Categories
-Route::get('/categories/add', 'CategoriesController@create');
-Route::get('/categories/edit', 'CategoriesController@select');
-Route::get('/categories/edit/{category}', 'CategoriesController@edit');
-Route::get('/categories/delete', 'CategoriesController@delete');
+Route::get('/quickreads/categories/add', 'CategoriesController@create');
+Route::get('/quickreads/categories/edit', 'CategoriesController@select');
+Route::get('/quickreads/categories/edit/{category}', 'CategoriesController@edit');
+Route::get('/quickreads/categories/delete', 'CategoriesController@delete');
 
-Route::post('/categories', 'CategoriesController@store');
-Route::patch('/categories/{category}', 'CategoriesController@update');
-Route::delete('/categories/{category}', 'CategoriesController@destroy');
+Route::post('/quickreads/categories', 'CategoriesController@store');
+Route::patch('/quickreads/categories/{category}', 'CategoriesController@update');
+Route::delete('/quickreads/categories/{category}', 'CategoriesController@destroy');
 
 // App Routes
-Route::get('/app/stories', 'StoriesController@app');
-Route::get('/app/categories', 'CategoriesController@app');
-Route::get('/app/authors', 'AuthorsController@app');
-Route::get('/app/users', 'UsersController@app');
+Route::get('/quickreads/app/stories', 'StoriesController@app');
+Route::get('/quickreads/app/categories', 'CategoriesController@app');
+Route::get('/quickreads/app/authors', 'AuthorsController@app');
+Route::get('/quickreads/app/users', 'UsersController@app');
