@@ -16,6 +16,8 @@ class StoryTest extends TestCase
     /** @test */
     public function the_admin_can_add_a_new_story()
     {
+        $this->be(factory('App\User')->make());
+        
         $input = factory('App\Story')->make();
 
         $this->post('/quickreads/stories', $input->toArray())
@@ -29,6 +31,8 @@ class StoryTest extends TestCase
     /** @test */
     public function the_admin_can_upload_a_cover_image_when_adding_a_new_story()
     {
+        $this->be(factory('App\User')->make());
+        
         $faker = \Faker\Factory::create();
         $title = $faker->sentence;
         $slug = str_slug($title);
@@ -49,6 +53,8 @@ class StoryTest extends TestCase
     /** @test */
     public function the_admin_can_edit_a_story()
     {
+        $this->be(factory('App\User')->make());
+        
         $story = factory('App\Story')->create();
 
         $this->patch('/quickreads/stories/'.$story->slug, [
@@ -71,6 +77,8 @@ class StoryTest extends TestCase
     /** @test */
     public function the_admin_can_remove_a_story()
     {
+        $this->be(factory('App\User')->make());
+        
         $story = factory('App\Story')->create();
 
         $this->delete('/quickreads/stories/'.$story->slug)->assertSessionHas('success');

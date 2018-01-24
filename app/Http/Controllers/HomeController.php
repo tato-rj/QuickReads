@@ -10,6 +10,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['except' => ['leftlane']]);
+    }
+
 	public function leftlane()
 	{
 		return view('leftlane/page');

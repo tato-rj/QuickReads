@@ -14,6 +14,8 @@ class AuthorTest extends TestCase
     /** @test */
     public function the_admin_can_add_a_new_author()
     {
+        $this->be(factory('App\User')->make());
+
         $input = factory('App\Author')->make();
 
         $this->post('/quickreads/authors', $input->toArray())
@@ -27,6 +29,8 @@ class AuthorTest extends TestCase
     /** @test */
     public function the_admin_can_edit_an_author()
     {
+        $this->be(factory('App\User')->make());
+        
         $author = factory('App\Author')->create();
 
         $this->patch('/quickreads/authors/'.$author->slug, [
@@ -46,6 +50,8 @@ class AuthorTest extends TestCase
     /** @test */
     public function the_admin_can_remove_an_author()
     {
+        $this->be(factory('App\User')->make());
+        
         $author = factory('App\Author')->create();
 
         $this->delete('/quickreads/authors/'.$author->slug)->assertSessionHas('success');

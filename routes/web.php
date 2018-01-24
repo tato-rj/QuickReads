@@ -1,8 +1,10 @@
 <?php
 
+Auth::routes();
+
 Route::get('/', 'HomeController@leftlane');
 
-Route::get('/quickreads', 'HomeController@admin');
+Route::get('/quickreads', 'HomeController@admin')->name('home');
 
 // Stories
 Route::get('/quickreads/stories/add', 'StoriesController@create');
