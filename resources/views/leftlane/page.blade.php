@@ -133,7 +133,7 @@
         <div class="row no-gutters popup-gallery">
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="https://thesciencebreaker.com" target="_blank">
-              <img class="img-fluid" src="img/portfolio/thumbnails/1.jpg" alt="">
+              <img class="img-fluid" src="{{asset('leftlane/img/portfolio/thumbnails/1.jpg')}}" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -148,7 +148,7 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="https://itunes.apple.com/app/id1139023307" target="_blank">
-              <img class="img-fluid" src="img/portfolio/thumbnails/2.jpg" alt="">
+              <img class="img-fluid" src="{{asset('leftlane/img/portfolio/thumbnails/2.jpg')}}" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -163,7 +163,7 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="https://farmaciaditarzo.net" target="_blank">
-              <img class="img-fluid" src="img/portfolio/thumbnails/4.jpg" alt="">
+              <img class="img-fluid" src="{{asset('leftlane/img/portfolio/thumbnails/4.jpg')}}" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -178,7 +178,7 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="https://itunes.apple.com/app/id1212142417" target="_blank">
-              <img class="img-fluid" src="img/portfolio/thumbnails/3.jpg" alt="">
+              <img class="img-fluid" src="{{asset('leftlane/img/portfolio/thumbnails/3.jpg')}}" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -193,7 +193,7 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="">
-              <img class="img-fluid" src="img/portfolio/thumbnails/6.jpg" alt="">
+              <img class="img-fluid" src="{{asset('leftlane/img/portfolio/thumbnails/6.jpg')}}" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
@@ -208,7 +208,7 @@
           </div>
           <div class="col-lg-4 col-sm-6">
             <a class="portfolio-box" href="http://hartfordmusicteachers.org" target="_blank">
-              <img class="img-fluid" src="img/portfolio/thumbnails/5.jpg" alt="">
+              <img class="img-fluid" src="{{asset('leftlane/img/portfolio/thumbnails/5.jpg')}}" alt="">
               <div class="portfolio-box-caption">
                 <div class="portfolio-box-caption-content">
                   <div class="project-category text-faded">
