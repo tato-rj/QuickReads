@@ -36,14 +36,14 @@ $factory->define(App\Story::class, function (Faker $faker) {
         'slug' => str_slug($title),
         'title' => $title,
         'summary' => $faker->paragraph,
-        'content' => $faker->text(800),
+        'text' => $faker->text(800),
         'author_id' => function() {
             return factory('App\Author')->create()->id;
         },
         'category_id' => function() {
             return factory('App\Category')->create()->id;
         },
-        'reading_time' => $faker->randomDigitNotNull,
+        'time' => $faker->randomDigitNotNull,
         'cost' => $faker->randomDigitNotNull
     ];
 });
@@ -68,7 +68,7 @@ $factory->define(App\Category::class, function (Faker $faker) {
 
     return [
         'slug' => str_slug($name),
-        'name' => $name,
+        'category' => $name,
         'sorting_order' => $faker->randomDigitNotNull
     ];
 });

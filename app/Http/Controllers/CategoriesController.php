@@ -41,15 +41,15 @@ class CategoriesController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:categories|max:120'
+            'category' => 'required|unique:categories|max:120'
         ]);
 
         $category = Category::create([
-            'slug' => str_slug($request->name),
-            'name' => $request->name
+            'slug' => str_slug($request->category),
+            'category' => $request->category
         ]);
 
-        return redirect()->back()->with('success', "$request->name has been successfully added!");
+        return redirect()->back()->with('success', "$request->category has been successfully added!");
     }
 
     /**
@@ -72,13 +72,13 @@ class CategoriesController extends Controller
     public function select()
     {
 
-        $categories = Category::orderBy('name')->get();
+        $categories = Category::orderBy('category')->get();
         return view('pages/categories/edit', compact(['categories']));
     }
 
     public function edit(Category $category)
     {
-        $categories = Category::orderBy('name')->get();
+        $categories = Category::orderBy('category')->get();
         return view('pages/categories/edit', compact(['category', 'categories']));
     }
 
@@ -91,19 +91,19 @@ class CategoriesController extends Controller
      */
     public function update(Request $request, Category $category)
     {
-        $slug = str_slug($request->name);
+        $slug = str_slug($request->category);
 
         $request->validate([
-            'name' => 'required|max:120'
+            'category' => 'required|max:120'
         ]);
 
         $category->update([
             'slug' => $slug,
-            'name' => $request->name,
+            'category' => $request->category,
             'sorting_order' => $request->sorting_order
         ]);
 
-        return redirect("/quickreads/categories/edit/$slug")->with('success', "$request->name has been updated");
+        return redirect("/quickreads/categories/edit/$slug")->with('success', "$request->category has been updated");
     }
 
     /**
@@ -114,13 +114,13 @@ class CategoriesController extends Controller
      */
     public function delete()
     {
-        $categories = Category::orderBy('name')->get();
+        $categories = Category::orderBy('category')->get();
         return view('pages/categories/delete', compact(['categories']));        
     }
     
     public function destroy(Category $category)
     {
         $category->delete();
-        return redirect()->back()->with('success', "$category->name has been successfully removed!");
+        return redirect()->back()->with('success', "$category->category has been successfully removed!");
     }
 }

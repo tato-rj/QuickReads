@@ -15,7 +15,7 @@
         <select class="form-control" onchange="select()">
           <option selected disabled>Choose a category</option>
           @foreach($categories as $select_category)
-            <option data-slug="{{$select_category->slug}}" value="{{$select_category->id}}">{{$select_category->name}}</option>
+            <option data-slug="{{$select_category->slug}}" value="{{$select_category->id}}">{{$select_category->category}}</option>
           @endforeach
         </select>      
       </form>  

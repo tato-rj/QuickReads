@@ -13,7 +13,7 @@
       {{csrf_field()}}
       {{-- Name --}}
       <div class="form-group">
-        <input type="text" class="form-control" name="name" placeholder="Category name" value="{{ old('name') }}" required>
+        <input type="text" class="form-control" name="category" placeholder="Category name" value="{{ old('category') }}" required>
       </div>
       <div class="text-center">
         <button type="submit" class="btn btn-block btn-default">Add Category</button>

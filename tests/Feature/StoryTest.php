@@ -41,10 +41,10 @@ class StoryTest extends TestCase
             'slug' => $slug,
             'title' => $title,
             'summary' => $faker->sentence,
-            'content' => $faker->paragraph,
+            'text' => $faker->paragraph,
             'author_id' => $faker->randomDigitNotNull,
             'category_id' => $faker->randomDigitNotNull,
-            'reading_time' => $faker->randomDigitNotNull,
+            'time' => $faker->randomDigitNotNull,
             'cost' => $faker->randomDigitNotNull,
             'image' => UploadedFile::fake()->create('image.jpeg', 200)
         ])->assertStatus(302);
@@ -59,9 +59,9 @@ class StoryTest extends TestCase
 
         $this->patch('/quickreads/stories/'.$story->slug, [
             'title' => 'New title',
-            'content' => $story->content,
+            'text' => $story->content,
             'summary' => $story->summary,
-            'reading_time' =>$story->reading_time,
+            'time' =>$story->reading_time,
             'author_id' => $story->author_id,
             'category_id' => $story->category_id,
             'cost' => $story->cost

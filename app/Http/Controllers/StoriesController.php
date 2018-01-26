@@ -28,10 +28,21 @@ class StoriesController extends Controller
         foreach ($categories as $category) {
             foreach ($category->stories as $story) {
                 $story->setAttribute('average_rating', $story->averageRating());
+                $story->setAttribute('story_filename', "https://leftlaneapps.com/storage/stories/$story->slug/".$story->slug.".jpeg");
+                $story->setAttribute('author', $story->creator->name);
+                $story->setAttribute('life', $story->creator->life);
+                $story->setAttribute('dates', '('.$story->creator->born_in.' - '.$story->creator->died_in.')');
             }
         }
 
         return $categories;
+    }
+
+    public function text(Request $request)
+    {
+        $story = Story::where('id', $request->id)->pluck('text');
+
+        return $story;
     }
 
     /**
@@ -57,10 +68,10 @@ class StoriesController extends Controller
         $request->validate([
             'title' => 'required|unique:stories|max:255',
             'summary' => 'required',
-            'content' => 'required',
+            'text' => 'required',
             'author_id' => 'required',
             'category_id' => 'required',
-            'reading_time' => 'required',
+            'time' => 'required',
             'cost' => 'required',
         ]);
 
@@ -68,10 +79,10 @@ class StoriesController extends Controller
             'slug' => str_slug($request->title),
             'title' => $request->title,
             'summary' => $request->summary,
-            'content' => $request->content,
+            'text' => $request->text,
             'author_id' => $request->author_id,
             'category_id' => $request->category_id,
-            'reading_time' => $request->reading_time,
+            'time' => $request->time,
             'cost' => $request->cost
         ]);
 
@@ -132,10 +143,10 @@ class StoriesController extends Controller
         $request->validate([
             'title' => 'required|max:255',
             'summary' => 'required',
-            'content' => 'required',
+            'text' => 'required',
             'author_id' => 'required',
             'category_id' => 'required',
-            'reading_time' => 'required',
+            'time' => 'required',
             'cost' => 'required',
         ]);
 
@@ -143,10 +154,10 @@ class StoriesController extends Controller
             'slug' => $slug,
             'title' => $request->title,
             'summary' => $request->summary,
-            'content' => $request->content,
+            'text' => $request->text,
             'author_id' => $request->author_id,
             'category_id' => $request->category_id,
-            'reading_time' => $request->reading_time,
+            'time' => $request->time,
             'cost' => $request->cost
         ]);
 

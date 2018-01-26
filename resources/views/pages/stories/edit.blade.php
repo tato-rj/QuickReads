@@ -45,7 +45,7 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label text-brand">Content</label>
         <div class="col-sm-10">
-          <textarea class="form-control" rows="12" name="content" placeholder="Content" required>{{ $story->content }}</textarea>
+          <textarea class="form-control" rows="12" name="text" placeholder="Content" required>{{ $story->text }}</textarea>
         </div>
       </div>
       <div class="row">
@@ -54,7 +54,7 @@
             <label class="col-sm-4 col-form-label text-brand">Reading Time</label>
             {{-- Reading Time --}}
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="reading_time" maxlength="3" placeholder="Reading time" value="{{ $story->reading_time }}" required>
+              <input type="text" class="form-control" name="time" maxlength="3" placeholder="Reading time" value="{{ $story->time }}" required>
             </div>            
           </div>
           <div class="form-group row">

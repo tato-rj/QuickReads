@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\File;
 class Story extends Model
 {
 	protected $guarded = [];
-    protected $with = ['author'];
+    protected $with = ['creator'];
     protected $withCount = ['ratings', 'comments'];
 	
     public function getRouteKeyName()
@@ -19,9 +19,9 @@ class Story extends Model
         return 'slug';
     }
 
-    public function author()
+    public function creator()
     {
-        return $this->belongsTo(Author::class);
+        return $this->belongsTo(Author::class, 'author_id', 'id');
     }
 
     public function image()

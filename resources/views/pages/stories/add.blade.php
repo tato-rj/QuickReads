@@ -21,13 +21,13 @@
       </div>
       {{-- Content --}}
       <div class="form-group">
-        <textarea class="form-control" rows="12" name="content" placeholder="Content" required>{{ old('content') }}</textarea>
+        <textarea class="form-control" rows="12" name="text" placeholder="Content" required>{{ old('text') }}</textarea>
       </div>
       <div class="row">
         <div class="col-6">
           <div class="form-group">
             {{-- Reading Time --}}
-            <input type="text" class="form-control" name="reading_time" maxlength="3" placeholder="Reading time" value="{{ old('reading_time') }}" required>
+            <input type="text" class="form-control" name="time" maxlength="3" placeholder="Reading time" value="{{ old('time') }}" required>
           </div>
           <div class="form-group">
             {{-- Author --}}

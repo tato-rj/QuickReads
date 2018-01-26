@@ -44,6 +44,7 @@ Route::delete('/quickreads/categories/{category}', 'CategoriesController@destroy
 
 // App Routes
 Route::get('/quickreads/app/stories', 'StoriesController@app');
+Route::get('/quickreads/app/stories/text', 'StoriesController@text');
 Route::get('/quickreads/app/categories', 'CategoriesController@app');
 Route::get('/quickreads/app/authors', 'AuthorsController@app');
 Route::get('/quickreads/app/users', 'UsersController@app');

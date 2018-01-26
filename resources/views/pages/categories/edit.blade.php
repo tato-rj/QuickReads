@@ -16,7 +16,7 @@
         <select class="form-control" onchange="select()">
           <option selected disabled>Choose the category</option>
           @foreach($categories as $select_category)
-            <option data-slug="{{$select_category->slug}}" value="{{$select_category->id}}">{{$select_category->name}}</option>
+            <option data-slug="{{$select_category->slug}}" value="{{$select_category->id}}">{{$select_category->category}}</option>
           @endforeach
         </select>        
       </div>
@@ -31,7 +31,7 @@
       <div class="form-group row">
         <label class="col-sm-2 col-form-label text-brand">Name</label>
         <div class="col-sm-10">
-          <input type="text" class="form-control" name="name" placeholder="Category name" value="{{ $category->name }}" required>
+          <input type="text" class="form-control" name="category" placeholder="Category name" value="{{ $category->category }}" required>
         </div>
       </div>
       {{-- Sorting order --}}

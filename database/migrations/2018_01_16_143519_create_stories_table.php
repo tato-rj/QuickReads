@@ -18,10 +18,10 @@ class CreateStoriesTable extends Migration
             $table->string('slug');
             $table->string('title');
             $table->text('summary');
-            $table->longText('content');
+            $table->longText('text');
             $table->unsignedInteger('author_id');
             $table->unsignedInteger('category_id');
-            $table->string('reading_time');
+            $table->string('time');
             $table->string('cost');
             $table->timestamps();
         });
