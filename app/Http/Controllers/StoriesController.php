@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Story;
 use App\Author;
 use App\Category;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\Upload;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -14,7 +15,7 @@ class StoriesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['except' => ['app']]);
+        $this->middleware('auth', ['except' => ['app', 'text', 'incrementViews']]);
     }
 
     public function index()
@@ -24,23 +25,21 @@ class StoriesController extends Controller
 
     public function app()
     {
-        $categories = Category::with('stories')->get();
-        foreach ($categories as $category) {
-            foreach ($category->stories as $story) {
-                $story->setAttribute('average_rating', $story->averageRating());
-                $story->setAttribute('story_filename', "https://leftlaneapps.com/storage/stories/$story->slug/".$story->slug.".jpeg");
-                $story->setAttribute('author', $story->creator->name);
-                $story->setAttribute('life', $story->creator->life);
-                $story->setAttribute('dates', '('.$story->creator->born_in.' - '.$story->creator->died_in.')');
-            }
-        }
-
-        return $categories;
+        $stories = DB::table('stories')
+                        ->join('categories', 'stories.category_id', '=', 'categories.id')
+                        ->join('authors', 'stories.author_id', '=', 'authors.id')
+                        ->selectRaw('CAST(stories.id as CHAR(100)) as id, authors.name AS author, CONCAT("(",authors.born_in," - ",authors.died_in,")") AS dates, authors.life AS life, stories.title AS title, stories.summary AS summary, stories.time AS time, stories.cost AS cost, CONCAT("https://leftlaneapps.com/storage/stories/",stories.slug,"/",stories.slug,".jpeg") AS story_filename, categories.category AS category, categories.sorting_order')
+                        ->orderBy('sorting_order')
+                        ->get();
+        return $stories;
     }
 
     public function text(Request $request)
     {
-        $story = Story::where('id', $request->id)->pluck('text');
+        $story = DB::table('stories')
+                        ->selectRaw('text')
+                        ->where('id', '=', $request->id)
+                        ->get();
 
         return $story;
     }
@@ -91,6 +90,12 @@ class StoriesController extends Controller
         return redirect()->back()->with('success', "$request->title has been successfully added!");
     }
 
+    public function incrementViews(Request $request)
+    {
+        $id = Story::where('title', '=',$request->title)->pluck('id')[0];
+        Story::find($id)->increment('views');
+    }
+
     public function saveFile($request)
     {
         if ($request->file('image')) {
@@ -124,7 +129,7 @@ class StoriesController extends Controller
     public function edit(Story $story)
     {
         $authors = Author::orderBy('name')->get();
-        $categories = Category::orderBy('name')->get();
+        $categories = Category::orderBy('category')->get();
         $stories = Story::orderBy('title')->get();
         return view('pages/stories/edit', compact(['stories', 'story', 'authors', 'categories']));
     }

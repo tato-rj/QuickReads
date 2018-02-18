@@ -12,6 +12,10 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
-        //
+        '/quickreads/users/facebook',
+        '/quickreads/stories/comments',
+        '/quickreads/stories/ratings',
+        '/quickreads/app/stories/views',
+        '/quickreads/app/records/purchase'
     ];
 }

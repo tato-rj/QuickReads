@@ -22,7 +22,7 @@ class CategoryTest extends TestCase
             ->assertSessionHas('success');
 
         $this->assertDatabaseHas('categories', [
-            'name' => $input->name
+            'category' => $input->category
         ]);
     }
 
@@ -35,13 +35,13 @@ class CategoryTest extends TestCase
         $category = factory('App\Category')->create();
 
         $this->patch('/quickreads/categories/'.$category->slug, [
-            'name' => 'New name'
+            'category' => 'New name'
         ])->assertSessionHas('success');
 
         $this->assertDatabaseHas('categories', [
-            'name' => 'New name'
+            'category' => 'New name'
         ])->assertDatabaseMissing('categories', [
-            'name' => $category->name
+            'category' => $category->category
         ]);
     }
 
@@ -55,7 +55,7 @@ class CategoryTest extends TestCase
         $this->delete('/quickreads/categories/'.$category->slug)->assertSessionHas('success');
 
         $this->assertDatabaseMissing('categories', [
-            'name' => $category->name
+            'category' => $category->category
         ]);
     }
 }

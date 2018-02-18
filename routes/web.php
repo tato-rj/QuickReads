@@ -42,9 +42,16 @@ Route::post('/quickreads/categories', 'CategoriesController@store');
 Route::patch('/quickreads/categories/{category}', 'CategoriesController@update');
 Route::delete('/quickreads/categories/{category}', 'CategoriesController@destroy');
 
+// Users
+Route::post('/quickreads/users/facebook', 'UsersController@store');
+
 // App Routes
 Route::get('/quickreads/app/stories', 'StoriesController@app');
 Route::get('/quickreads/app/stories/text', 'StoriesController@text');
+Route::get('/quickreads/app/stories/{storyTitle}/rating', 'RatingsController@show');
 Route::get('/quickreads/app/categories', 'CategoriesController@app');
 Route::get('/quickreads/app/authors', 'AuthorsController@app');
 Route::get('/quickreads/app/users', 'UsersController@app');
+
+Route::post('/quickreads/app/records/purchase', 'UserPurchaseRecordController@store');
+Route::post('/quickreads/app/stories/views', 'StoriesController@incrementViews');

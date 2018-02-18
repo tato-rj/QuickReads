@@ -18,8 +18,10 @@ class CreateUsersTable extends Migration
             $table->string('slug');
             $table->string('first_name');
             $table->string('last_name');
-            $table->string('gender')->nullable();
             $table->string('email')->unique();
+            $table->string('facebook_id')->nullable()->index();
+            $table->string('gender')->nullable();
+            $table->string('locale')->nullable();
             $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();

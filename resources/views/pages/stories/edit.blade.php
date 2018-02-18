@@ -76,7 +76,7 @@
               <select name="category_id" class="form-control" required>
                 <option selected disabled>Category</option>
                 @foreach($categories as $category)
-                  <option value="{{$category->id}}" {{ ($story->category_id == $category->id) ? 'selected' : '' }}>{{$category->name}}</option>
+                  <option value="{{$category->id}}" {{ ($story->category_id == $category->id) ? 'selected' : '' }}>{{$category->category}}</option>
                 @endforeach
               </select>              
             </div>

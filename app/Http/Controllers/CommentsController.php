@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Comment;
+use App\Story;
+use App\User;
 use Illuminate\Http\Request;
 
 class CommentsController extends Controller
@@ -29,16 +31,18 @@ class CommentsController extends Controller
 
     public function store(Request $request)
     {
+        // $request["story_id"] = Story::where('title', '=',$request["title"])->pluck('id')[0];
+
         $request->validate([
-            'user_id' => 'required',
-            'story_id' => 'required',
-            'body' => 'required|max:248'
+            'facebook_id' => 'required',
+            'title' => 'required',
+            'body' => 'required|max:248|unique:comments'
         ]);
 
         $comment = Comment::create([
-            'user_id' => $request->user_id,
-            'story_id' => $request->story_id,
-            'body' => $request->body
+            'user_id' => User::where('facebook_id', '=',$request["facebook_id"])->pluck('id')[0],
+            'story_id' => Story::where('title', '=',$request["title"])->pluck('id')[0],
+            'body' => $request["body"]
         ]);
 
         return $comment;

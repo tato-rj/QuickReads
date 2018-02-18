@@ -59,9 +59,9 @@ class StoryTest extends TestCase
 
         $this->patch('/quickreads/stories/'.$story->slug, [
             'title' => 'New title',
-            'text' => $story->content,
+            'text' => $story->text,
             'summary' => $story->summary,
-            'time' =>$story->reading_time,
+            'time' =>$story->time,
             'author_id' => $story->author_id,
             'category_id' => $story->category_id,
             'cost' => $story->cost

@@ -45,10 +45,11 @@ class Story extends Model
         return $this->hasMany(Rating::class);
     }
 
-    public function averageRating($from = null)
+    public function averageRating()
     {
-        if (!$this->ratings_count) return 0;
+        if (!$this->ratings_count) return '0';
         $scores = $this->ratings()->pluck('score')->toArray();
-        return number_format(array_sum($scores) / count($scores), 1); 
+
+        return round(array_sum($scores) / count($scores)); 
     }
 }

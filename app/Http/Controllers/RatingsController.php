@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Rating;
+use App\Story;
 use Illuminate\Http\Request;
 
 class RatingsController extends Controller
@@ -32,15 +34,15 @@ class RatingsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'user_id' => 'required',
-            'story_id' => 'required',
+            'facebook_id' => 'required',
+            'title' => 'required',
             'score' => 'required|numeric'
         ]);
 
         $rating = Rating::create([
-            'user_id' => $request->user_id,
-            'story_id' => $request->story_id,
-            'score' => $request->score
+            'user_id' => User::where('facebook_id', '=',$request["facebook_id"])->pluck('id')[0],
+            'story_id' => Story::where('title', '=',$request["title"])->pluck('id')[0],
+            'score' => $request["score"]
         ]);
 
         return $rating;
@@ -52,9 +54,11 @@ class RatingsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($storyTitle)
     {
-        //
+        $id = Story::where('title', $storyTitle)->pluck('id')[0];
+        $story = Story::find($id);
+        return $story->averageRating();
     }
 
     /**

@@ -16,19 +16,20 @@ class UsersTest extends TestCase
     /** @test */
     public function a_user_can_comment_on_a_story()
     {
-    	$faker = \Faker\Factory::create();
         $user = factory('App\User')->create();
         $story = factory('App\Story')->create();
-        $body = $faker->paragraph;
+        $comment = 'New comment';
+
+        // THIS WILL FAIL BECAUSE THE APP SENDS THE FACEBOOK_ID AND IN THIS TEST I AM SENDING THE USER ID
 
         $this->post("/quickreads/stories/comments", [
-        	'user_id' => $user->id,
-        	'story_id' => $story->id,
-        	'body' => $body
+        	'facebook_id' => $user->facebook_id,
+        	'title' => $story->title,
+        	'body' => 'New comment'
         ]);
 
         $this->assertDatabaseHas('comments', [
-        	'body' => $body
+        	'body' => 'New comment'
         ]);
     }
 
@@ -40,13 +41,32 @@ class UsersTest extends TestCase
         $score = '4';
 
         $this->post("/quickreads/stories/ratings", [
-        	'user_id' => $user->id,
-        	'story_id' => $story->id,
+        	'facebook_id' => $user->facebook_id,
+        	'title' => $story->title,
         	'score' => $score
         ]);
 
         $this->assertDatabaseHas('ratings', [
         	'score' => $score
+        ]);
+    }
+
+    /** @test */
+    public function a_user_can_sign_up_with_facebook()
+    {
+        $user = factory('App\User')->make();
+
+        $this->post("/quickreads/users/facebook", [
+            'first_name' => $user->first_name,
+            'last_name' => $user->last_name,
+            'gender' => $user->gender,
+            'email' => $user->email,
+            'facebook_id' => $user->facebook_id,
+            'locale' => $user->locale
+        ]);
+
+        $this->assertDatabaseHas('users', [
+            'slug' => str_slug("{$user->first_name} {$user->last_name}")
         ]);
     }
 }

@@ -40,7 +40,18 @@ class UsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return User::firstOrCreate(
+            [
+                'email' => $request["email"],
+            ],
+            [
+            'slug' => str_slug("{$request["first_name"]} {$request["last_name"]}"),
+            'first_name' => $request["first_name"],
+            'last_name' => $request["last_name"],
+            'locale' => $request["locale"],
+            'gender' => $request["gender"],
+            'facebook_id' => $request["facebook_id"],
+        ]);
     }
 
     /**
