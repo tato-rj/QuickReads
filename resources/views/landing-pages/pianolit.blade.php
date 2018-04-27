@@ -4,6 +4,12 @@
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200');
 
+input, button {
+outline: none;
+box-shadow:none !important;
+border: none !important;
+}
+
 body {
     color: #fff;
     background: linear-gradient(-45deg, #EE7752, #E73C7E);
@@ -48,6 +54,16 @@ body {
 
 .border-bottom {
     border-bottom: 1px solid white;
+}
+
+.btn-blue {
+    transition: 0.2s;
+    background: #3d91d1;
+    color: white!important;
+}
+
+.btn-blue:hover {
+    background: #3785c2;
 }
 
 /*body {
@@ -109,32 +125,16 @@ body {
 @section('content')
 <div class="container my-5">
     <div class="row">
-{{--         <div class="col-lg-5 col-md-6 col-sm-12 col-12 my-4">
-            <div class="d-flex align-items-center justify-content-center iphone-container" style="height: 100%">
-                <div class="shadow slideshow">
-                    <img class="screen" src="{{asset('images/landing-pages/pianolit/screen01.jpg')}}">
-                    <img class="screen" style="display: none;" src="{{asset('images/landing-pages/pianolit/screen02.jpg')}}">
-                    <img class="screen" style="display: none;" src="{{asset('images/landing-pages/pianolit/screen03.jpg')}}">
-                    <img class="screen" style="display: none;" src="{{asset('images/landing-pages/pianolit/screen04.jpg')}}">
-                    <img class="screen" style="display: none;" src="{{asset('images/landing-pages/pianolit/screen05.jpg')}}">
-                    <img class="screen" style="display: none;" src="{{asset('images/landing-pages/pianolit/screen06.jpg')}}">
-                    <img class="screen" style="display: none;" src="{{asset('images/landing-pages/pianolit/screen07.jpg')}}">
-                    <img class="screen" style="display: none;" src="{{asset('images/landing-pages/pianolit/screen08.jpg')}}">
-                    <img class="screen" style="display: none;" src="{{asset('images/landing-pages/pianolit/screen09.jpg')}}">
-                    <img class="screen" style="display: none;" src="{{asset('images/landing-pages/pianolit/screen10.jpg')}}">
-                    <img class="screen" style="display: none;" src="{{asset('images/landing-pages/pianolit/screen11.jpg')}}">
-                </div>
-            </div>
-        </div> --}}
         <div class="mx-auto col-lg-7 col-md-6 col-sm-12 col-12 d-flex justify-content-center flex-column mb-4">
-            <div class="mb-4">
-                <h1 class="font-thin border-bottom mb-0 border-bottom" style="font-size: 5em;">PIANO<span class="text-warning">LIT</span></h1>
+            <div class="mb-4 d-flex align-items-center">
+                <img src="{{asset('images/landing-pages/pianolit/icon-play.svg')}}" style="width: 80px; height: 80px" class="mr-2">
+                <h1 class="font-thin mb-0" style="font-size: 5em;">PIANO<span class="" style="color: #a2d6ff">LIT</span></h1>
             </div>
             <h4 class="mb-3">Is it difficult to find a piano piece that suits you?</h4>
-            <p class="lead">PianoLIT is where pianists discover new pieces and find inspiration to play only what they love.</p>
+            <p class="lead">PianoLIT is the <strong><b>APP</b></strong> where pianists discover new pieces and find inspiration to play only what they love.</p>
             <p class="lead">Because when the piano piece you play fits you, the execution is superior.</p>
 
-            <button type="submit" data-toggle="modal" data-target="#signup-modal" style="color: rgba(0,0,0,0.6)" class="btn btn-warning p-3 mt-4">
+            <button type="submit" data-toggle="modal" data-target="#signup-modal" style="color: rgba(0,0,0,0.6)" class="btn btn-blue p-3 mt-4">
                 <strong>It's only $0.99/month... Sign me up!</strong>
             </button>
 
@@ -144,19 +144,19 @@ body {
     <div class="row py-3">
         <div class="col-lg-3 col-md-3 col-sm-6 col-10 mx-auto my-4">
             <p>Step 1, choose your <strong>level</strong></p>
-            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen04.jpg')}}">
+            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen04.png')}}">
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-10 mx-auto my-4">
             <p>Step 2, refine your <strong>mood</strong></p>
-            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen05.jpg')}}">
+            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen05.png')}}">
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-10 mx-auto my-4">
             <p>Step 3, pick the <strong>length</strong></p>
-            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen06.jpg')}}">
+            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen06.png')}}">
         </div>
         <div class="col-lg-3 col-md-3 col-sm-6 col-10 mx-auto my-4">
             <p>or find with <strong>detailed search</strong></p>
-            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen07.jpg')}}">
+            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen07.png')}}">
         </div>
 
 
@@ -179,7 +179,7 @@ body {
                 <p>We're working hard to put the finishing touches onto the app. If you'd like us to send you a reminder when we're ready, just enter your email.</p>
                 <input type="email" style="border-color: rgba(0,0,0,0.05)!important" class="form-control py-3 px-4 bg-light" name="email" placeholder="Enter your email here">
             </div>
-            <button type="submit" class="btn btn-success btn-block p-3"><strong>Let me know when it's out!</strong></button>
+            <button type="submit" class="btn btn-blue btn-block p-3"><strong>Let me know when it's out!</strong></button>
         </form>
       </div>
     </div>
