@@ -43,7 +43,7 @@
             <select name="category_id" class="form-control" required>
               <option selected disabled>Category</option>
               @foreach($categories as $category)
-                <option value="{{$category->id}}" {{ (old('category_id') == $category->id) ? 'selected' : '' }}>{{$category->name}}</option>
+                <option value="{{$category->id}}" {{ (old('category_id') == $category->id) ? 'selected' : '' }}>{{$category->category}}</option>
               @endforeach
             </select>
           </div>
@@ -61,7 +61,7 @@
         <div class="col-6">
           <div id="upload-box" class="card">
             <input type="file" id="image" name="image" style="display:none;" />
-            <img class="card-img-top" id="cover-img" src="{{ asset('images/no-image.png') }}" alt="Not an image">
+            <img class="card-img-top" id="cover-img" src="{{ asset('images/avatar.png') }}" alt="Not an image">
             <div class="card-body text-center">
               <button type="button" id="upload-button" class="btn btn-warning"><i class="fa fa-cloud-upload mr-1" aria-hidden="true"></i>Upload</button>
             </div>

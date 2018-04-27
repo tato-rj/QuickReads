@@ -12,6 +12,12 @@
         </a>
       </li>
       <li class="nav-item">
+        <a class="nav-link" href="/quickreads/users/">
+          <i class="fa fa-fw fa-users"></i>
+          <span class="nav-link-text">Users</span>
+        </a>
+      </li>
+      <li class="nav-item">
         <a class="nav-link nav-link-collapse collapsed" data-toggle="collapse" href="#stories">
           <i class="fa fa-fw fa-book" aria-hidden="true"></i>
           <span class="nav-link-text">Stories</span>

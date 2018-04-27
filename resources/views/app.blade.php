@@ -8,6 +8,7 @@
         <link rel="stylesheet" type="text/css" href="{{asset('css/theme.min.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/tables.css')}}">
         <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+        @yield('head')
     </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top">
 

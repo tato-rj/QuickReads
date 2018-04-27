@@ -4,7 +4,12 @@ Auth::routes();
 
 Route::get('/', 'HomeController@leftlane');
 
+Route::get('/pianolit', 'LandingPagesController@pianolit');
+
 Route::get('/quickreads', 'HomeController@admin')->name('home');
+
+// Users
+Route::get('/quickreads/users', 'UsersController@index');
 
 // Stories
 Route::get('/quickreads/stories/add', 'StoriesController@create');

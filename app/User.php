@@ -17,11 +17,23 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $with = ['comments', 'ratings'];
+    protected $withCount = ['stories'];
+
+    protected $with = ['comments', 'ratings', 'stories'];
 
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function getFullNameAttribute()
+    {
+        return "$this->first_name $this->last_name";
+    }
+
+    public function getProfilePictureAttribute()
+    {
+        return "http://graph.facebook.com/{$this->facebook_id}/picture?type=large";
     }
 
     public function comments()
@@ -32,5 +44,10 @@ class User extends Authenticatable
     public function ratings()
     {
         return $this->hasMany(Rating::class);
+    }
+
+    public function stories()
+    {
+        return $this->belongsToMany(Story::class, 'user_purchase_records', 'user_id', 'story_id')->select(['title','user_purchase_records.created_at'])->latest();
     }
 }

@@ -14,12 +14,13 @@ class UsersController extends Controller
      */
     public function index()
     {
-        //
+        $users = User::latest()->get();
+        return view('pages/users/index', compact('users'));
     }
     
     public function app()
     {
-        return User::orderBy('first_name')->get();
+        return User::latest()->get();
     }
 
     /**

@@ -52,7 +52,7 @@ class StoriesController extends Controller
     public function create()
     {
         $authors = Author::orderBy('name')->get();
-        $categories = Category::orderBy('name')->get();
+        $categories = Category::orderBy('category')->get();
         return view('pages/stories/add', compact(['authors', 'categories']));
     }
 
