@@ -9,9 +9,19 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title>{{$title}}</title>
+    <!-- Font -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css?family=Rubik:300,400,500" rel="stylesheet">
 
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{{asset('pianolit/css/bootstrap.min.css')}}">
+    <!-- Themify Icons -->
+    <link rel="stylesheet" href="{{asset('pianolit/css/themify-icons.css')}}">
+    <!-- Owl carousel -->
+    <link rel="stylesheet" href="{{asset('pianolit/css/owl.carousel.min.css')}}">
+    <!-- Main css -->
+    <link href="{{asset('pianolit/css/theme.css')}}" rel="stylesheet">
+
     @yield('header')
 </head>
 <body>

@@ -2,167 +2,161 @@
 
 @section('header')
 <style type="text/css">
-@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200');
+        .alert {
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
 
-input, button {
-outline: none;
-box-shadow:none !important;
-border: none !important;
-}
+        .btn {
+            padding: 
+        }
+        
+        .text-blue {
+            color: #2d75b5!important;
+        }
+        
+        .btn-outline-blue {
+            border: 2px solid #2d75b5;
+            border-radius: 4px;
+            background: transparent;
+            color: #2d75b5;
+            transition: 0.2s;
+        }
 
-body {
-    color: #fff;
-    background: linear-gradient(-45deg, #EE7752, #E73C7E);
-}
+        .btn-outline-blue:hover {
+            border: 2px solid #2d75b5;
+            background: #2d75b5;
+            color: white;
+        }
 
-.text-blue {
-    color: #4969a6;
-}
+        .slideshow {
+            position: relative;
+        }
 
-.bg-blue {
-    background: #4969a6;
-}
+        .slideshow, .screen {
+            width: 300px;
+            height: 533px;
+        }
 
-.font-thin {
-    font-family: 'Montserrat', sans-serif;
-}
+        .screen {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
 
-.iphone-container {
-    /*max-width: 300px;*/
-}
-
-.slideshow {
-    position: relative;
-}
-
-.slideshow, .screen {
-    width: 300px;
-    height: 533px;
-}
-
-.screen {
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-
-.shadow {
-    -webkit-box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-    box-shadow: 0 5px 30px rgba(0,0,0,0.3);
-}
-
-.border-bottom {
-    border-bottom: 1px solid white;
-}
-
-.btn-blue {
-    transition: 0.2s;
-    background: #3d91d1;
-    color: white!important;
-}
-
-.btn-blue:hover {
-    background: #3785c2;
-}
-
-/*body {
-    width: 100wh;
-    height: 100vh;
-    color: #fff;
-    background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);
-    background-size: 400% 400%;
-    -webkit-animation: Gradient 15s ease infinite;
-    -moz-animation: Gradient 15s ease infinite;
-    animation: Gradient 15s ease infinite;
-}
-
-@-webkit-keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
-}
-
-@-moz-keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
-}
-
-@keyframes Gradient {
-    0% {
-        background-position: 0% 50%
-    }
-    50% {
-        background-position: 100% 50%
-    }
-    100% {
-        background-position: 0% 50%
-    }
-}*/
-
-@media (max-width: 575.98px) {
-    h1 {
-        font-size: 4.2em!important;
-        text-align: center;
-    }
-}
+        .shadow {
+            -webkit-box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+            -moz-box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+            box-shadow: 0 5px 30px rgba(0,0,0,0.15);
+        }
 </style>
 @endsection
 
 @section('content')
-<div class="container my-5">
-    <div class="row">
-        <div class="mx-auto col-lg-7 col-md-6 col-sm-12 col-12 d-flex justify-content-center flex-column mb-4">
-            <div class="mb-4 d-flex align-items-center">
-                <img src="{{asset('images/landing-pages/pianolit/icon-play.svg')}}" style="width: 80px; height: 80px" class="mr-2">
-                <h1 class="font-thin mb-0" style="font-size: 5em;">PIANO<span class="" style="color: #a2d6ff">LIT</span></h1>
+    <header class="bg-gradient" id="home">
+        <div class="container">
+            <p class="tagline">Play only what you love with </p>
+            <h1 style="font-size: 5em"><b>PIANO<span style="color: rgba(255, 255, 255, 0.5)">LIT</span></b></h1>
+            <p class="tagline text-white">PianoLIT is where pianists discover new pieces and find inspiration to play only what they love.</p>
+        </div>
+        <div class="img-holder mt-3"><img src="pianolit/images/iphonex-cover.png" alt="phone" class="img-fluid"></div>
+    </header>
+
+    <div class="client-logos my-5">
+        <div class="container text-center">
+            <div class="d-flex align-items-center justify-content-center">
+                <h4 class="m-0">Do you want to find a piano piece that suits you?</h4>
+                <a class="btn btn-primary btn-lg ml-4" href="#pricing">SIGN ME UP</a>
             </div>
-            <h4 class="mb-3">Is it difficult to find a piano piece that suits you?</h4>
-            <p class="lead">PianoLIT is the <strong><b>APP</b></strong> where pianists discover new pieces and find inspiration to play only what they love.</p>
-            <p class="lead">Because when the piano piece you play fits you, the execution is superior.</p>
-
-            <button type="submit" data-toggle="modal" data-target="#signup-modal" style="color: rgba(0,0,0,0.6)" class="btn btn-blue p-3 mt-4">
-                <strong>It's only $0.99/month... Sign me up!</strong>
-            </button>
-
         </div>
     </div>
+    <!-- // end .section -->
 
-    <div class="row py-3">
-        <div class="col-lg-3 col-md-3 col-sm-6 col-10 mx-auto my-4">
-            <p>Step 1, choose your <strong>level</strong></p>
-            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen04.png')}}">
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-10 mx-auto my-4">
-            <p>Step 2, refine your <strong>mood</strong></p>
-            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen05.png')}}">
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-10 mx-auto my-4">
-            <p>Step 3, pick the <strong>length</strong></p>
-            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen06.png')}}">
-        </div>
-        <div class="col-lg-3 col-md-3 col-sm-6 col-10 mx-auto my-4">
-            <p>or find with <strong>detailed search</strong></p>
-            <img class="shadow" style="width: 100%;" src="{{asset('images/landing-pages/pianolit/screen07.png')}}">
-        </div>
+    <div class="section light-bg">
 
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 d-flex align-items-center">
+                    <ul class="list-unstyled ui-steps">
+                        <li class="media">
+                            <div class="circle-icon mr-4">1</div>
+                            <div class="media-body">
+                                <h5>Search & Discover</h5>
+                                <p>Use our guided tour to discover new pieces based on your <u>level</u> and <u>mood</u>. Or search in our <u>library</u> by technique, period, composer and much more.</p>
+                            </div>
+                        </li>
+                        <li class="media my-4">
+                            <div class="circle-icon mr-4">2</div>
+                            <div class="media-body">
+                                <h5>Find your Top Matches</h5>
+                                <p>The search results display your <u>best matches</u>. Our library is created by professionals and teachers, and it's <u>continuously growing</u>.</p>
+                            </div>
+                        </li>
+                        <li class="media">
+                            <div class="circle-icon mr-4">3</div>
+                            <div class="media-body">
+                                <h5>Lear Quickly</h5>
+                                <p>The result pieces include <u>audio recordings</u> of separate hands and hands together, recommended video, <u>speed control</u> and option to <u>download the score</u>.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <div class="slideshow mx-auto shadow">
+                        <img src="pianolit/images/screen04.png" class="screen">
+                        <img src="pianolit/images/screen05.png" style="display: none;" class="screen">
+                        <img src="pianolit/images/screen06.png" style="display: none;" class="screen">
+                        <img src="pianolit/images/screen07.png" style="display: none;" class="screen">                    
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
 
     </div>
+    <!-- // end .section -->
 
-</div>
+    <div class="section" id="pricing">
+        <div class="container">
+            <div class="section-title">
+                <small>PRICING</small>
+                <h3>Less than a cup of coffee!</h3>
+            </div>
+
+            <div class="card-deck row">
+                <div class="card pricing popular col-lg-4 col-md-5 col-sm-6 col-10 mx-auto">
+                    <div class="card-head">
+                        <small class="text-primary">subscription</small>
+                        <span class="price">$0.99<sub>/m</sub></span>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <div class="list-group-item"><span class="ti-check text-success mr-2"></span>Unlimited Access</div>
+                        <div class="list-group-item"><span class="ti-check text-success mr-2"></span>Over 500 pieces (and growing)</div>
+                        <div class="list-group-item"><span class="ti-check text-success mr-2"></span>Audio and Video</div>
+                        <div class="list-group-item"><span class="ti-check text-success mr-2"></span>Speed Control</div>
+                        <div class="list-group-item"><span class="ti-check text-success mr-2"></span>Download the Score</div>
+                    </ul>
+                    <div class="card-body">
+                        <a  data-toggle="modal" data-target="#signup-modal"  href="#" class="btn btn-primary btn-lg btn-block">Sign me Up</a>
+                    </div>
+                </div>
+            </div>
+            <!-- // end .pricing -->
+
+
+        </div>
+
+    </div>
+    <!-- // end .section -->
+    <footer class="my-5 text-center">
+        <!-- Copyright removal is not prohibited! -->
+        <p class="mb-2"><small>MADE WITH <span class="ti-heart text-danger mx-2"></span> BY LEFTLANE</small></p>
+
+    </footer>
 
 <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
@@ -173,32 +167,36 @@ body {
         </button>
       </div>
       <div class="modal-body mt-0 pt-0">
-        <form class="pl-4 pb-4 pr-4">
+        <form method="POST" action="/piano-lit/subscribe" class="pl-4 pb-4 pr-4">
+            {{ csrf_field() }}
             <div class="form-group text-dark">
                 <h3>Hello! You caught us before we're ready.</h3>
                 <p>We're working hard to put the finishing touches onto the app. If you'd like us to send you a reminder when we're ready, just enter your email.</p>
                 <input type="email" style="border-color: rgba(0,0,0,0.05)!important" class="form-control py-3 px-4 bg-light" name="email" placeholder="Enter your email here">
             </div>
-            <button type="submit" class="btn btn-blue btn-block p-3"><strong>Let me know when it's out!</strong></button>
+            <button type="submit" style="cursor: pointer;" class="btn btn-primary btn-block btn-lg">Let me know when it's out!</button>
         </form>
       </div>
     </div>
   </div>
 </div>
+
+@include('landing-pages/feedback')
+
 @endsection
 
 @section('scripts')
 <script type="text/javascript">
-// $(function(){
-//     $('.slideshow img:nth-of-type(1)').prependTo('.slideshow');
+$(function(){
+    $('.slideshow img:nth-of-type(1)').prependTo('.slideshow');
     
-//     $('.slideshow img:gt(0)').hide();
+    $('.slideshow img:gt(0)').hide();
     
-//     setInterval(function() {
+    setInterval(function() {
     
-//         $('.slideshow :first-child').fadeOut('slow').next('img').fadeIn('slow').end().appendTo('.slideshow');
+        $('.slideshow :first-child').fadeOut('slow').next('img').fadeIn('slow').end().appendTo('.slideshow');
     
-//     }, 6000);
-// });
+    }, 6000);
+});
 </script>
 @endsection

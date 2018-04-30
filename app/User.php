@@ -48,6 +48,16 @@ class User extends Authenticatable
 
     public function stories()
     {
-        return $this->belongsToMany(Story::class, 'user_purchase_records', 'user_id', 'story_id')->select(['title','user_purchase_records.created_at'])->latest();
+        return $this->belongsToMany(Story::class, 'user_purchase_records', 'user_id', 'story_id')->select(['stories.id', 'title','user_purchase_records.created_at'])->latest();
+    }
+
+    public function ratingsFor($storyId)
+    {
+        $rating =  Rating::where([
+            'user_id' => $this->id,
+            'story_id' => $storyId
+        ])->first();
+
+        return ($rating) ? $rating->score : 0;
     }
 }

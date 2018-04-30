@@ -4,9 +4,13 @@ Auth::routes();
 
 Route::get('/', 'HomeController@leftlane');
 
-Route::get('/pianolit', 'LandingPagesController@pianolit');
+Route::get('/piano-lit', 'LandingPagesController@pianolit');
+Route::post('/piano-lit/subscribe', 'LandingPagesController@subscribe');
 
 Route::get('/quickreads', 'HomeController@admin')->name('home');
+
+// Statistics
+Route::get('/quickreads/statistics', 'StatisticsController@index');
 
 // Users
 Route::get('/quickreads/users', 'UsersController@index');

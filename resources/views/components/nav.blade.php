@@ -7,8 +7,14 @@
     <ul class="navbar-nav navbar-sidenav">
       <li class="nav-item">
         <a class="nav-link" href="/quickreads/">
-          <i class="fa fa-fw fa-dashboard"></i>
+          <i class="fas fa-fw fa-tachometer-alt"></i>
           <span class="nav-link-text">Dashboard</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/quickreads/statistics/">
+          <i class="fas fa-chart-line fa-fw"></i>
+          <span class="nav-link-text">Statistics</span>
         </a>
       </li>
       <li class="nav-item">
@@ -79,7 +85,7 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" data-toggle="modal" data-target="#exampleModal">
-          <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+          <i class="fas fa-fw fa-sign-out-alt"></i>Logout</a>
         </li>
       </ul>
     </div>
