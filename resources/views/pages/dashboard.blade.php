@@ -76,6 +76,10 @@
           </div>
         </div>
       </div>
-
+    <div class="row">
+      <div class="col-12">
+        <p>{{$subscriptions_count}} {{str_plural('subscription', $subscriptions_count)}} for PianoLIT</p>
+      </div>
+    </div>
     </div>
 @endsection

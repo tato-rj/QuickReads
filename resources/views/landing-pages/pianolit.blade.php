@@ -1,6 +1,16 @@
 @extends('layouts.landing-page')
 
 @section('header')
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-118457950-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-118457950-1');
+</script>
+
 <style type="text/css">
         .alert {
             position: absolute;
@@ -131,7 +141,7 @@
                 <div class="card pricing popular col-lg-4 col-md-5 col-sm-6 col-10 mx-auto">
                     <div class="card-head">
                         <small class="text-primary">subscription</small>
-                        <span class="price">$0.99<sub>/m</sub></span>
+                        <span class="price">$0.99<sub>/month</sub></span>
                     </div>
                     <ul class="list-group list-group-flush">
                         <div class="list-group-item"><span class="ti-check text-success mr-2"></span>Unlimited Access</div>
@@ -172,7 +182,7 @@
             <div class="form-group text-dark">
                 <h3>Hello! You caught us before we're ready.</h3>
                 <p>We're working hard to put the finishing touches onto the app. If you'd like us to send you a reminder when we're ready, just enter your email.</p>
-                <input type="email" style="border-color: rgba(0,0,0,0.05)!important" class="form-control py-3 px-4 bg-light" name="email" placeholder="Enter your email here">
+                <input required type="email" style="border-color: rgba(0,0,0,0.05)!important" class="form-control py-3 px-4 bg-light" name="email" placeholder="Enter your email here">
             </div>
             <button type="submit" style="cursor: pointer;" class="btn btn-primary btn-block btn-lg">Let me know when it's out!</button>
         </form>

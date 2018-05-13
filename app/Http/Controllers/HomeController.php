@@ -2,10 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Story;
-use App\Author;
-use App\Category;
-use App\User;
+use App\{Story, Author, Category, User, Subscription};
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -26,7 +23,8 @@ class HomeController extends Controller
 		$categories_count = Category::count();
 		$authors_count = Author::count();
 		$users_count = User::count();
+		$subscriptions_count = Subscription::count();
 
-		return view('pages/dashboard', compact('stories_count', 'categories_count', 'authors_count', 'users_count'));
+		return view('pages/dashboard', compact('stories_count', 'categories_count', 'authors_count', 'users_count', 'subscriptions_count'));
 	}
 }

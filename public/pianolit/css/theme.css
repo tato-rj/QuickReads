@@ -238,7 +238,12 @@ header {
 }
 
 .bg-gradient {
-    background: #4969a6;
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#658dd9+1,4969a6+79,4969a6+79 */
+background: #658dd9; /* Old browsers */
+background: -moz-linear-gradient(top, #658dd9 1%, #4969a6 79%, #4969a6 79%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #658dd9 1%,#4969a6 79%,#4969a6 79%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #658dd9 1%,#4969a6 79%,#4969a6 79%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#658dd9', endColorstr='#4969a6',GradientType=0 ); /* IE6-9 */
 }
 
 .tagline {

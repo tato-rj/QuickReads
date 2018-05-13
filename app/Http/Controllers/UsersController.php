@@ -55,6 +55,41 @@ class UsersController extends Controller
         ]);
     }
 
+    public function register(Request $request)
+    {
+        $validator = \Validator::make($request->all(), [
+            'email' => 'unique:users'
+        ]);
+
+        if ($validator->fails()) { 
+            return response()->json($validator->messages(), 403);
+        }
+
+        $user = User::create([
+            'slug' => str_slug("{$request["first_name"]} {$request["last_name"]}"),
+            'first_name' => $request["first_name"],
+            'last_name' => $request["last_name"],
+            'email' => $request["email"],
+            'facebook_id' => \Hash::make(\Carbon\Carbon::now()->timestamp.$request["email"]),
+            'password' => \Hash::make($request["password"]),
+            'locale' => $request["locale"]
+        ]);
+
+        return response()->json($user);
+    }
+
+    public function appLogin($email, $password)
+    {
+        $user = User::where('email', $email)->first();
+
+        if ($user) {
+            if (\Hash::check($password, $user->password))
+                return response()->json($user);            
+        }
+
+        return response()->json();
+    }
+
     /**
      * Display the specified resource.
      *

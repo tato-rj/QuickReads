@@ -6,6 +6,8 @@ Route::get('/', 'HomeController@leftlane');
 
 Route::get('/piano-lit', 'LandingPagesController@pianolit');
 Route::post('/piano-lit/subscribe', 'LandingPagesController@subscribe');
+Route::get('/piano-lit/i-want-to-be-a-tester', 'LandingPagesController@tester');
+Route::get('/piano-lit/keep-me-in-the-loop', 'LandingPagesController@interested');
 
 Route::get('/quickreads', 'HomeController@admin')->name('home');
 
@@ -14,6 +16,8 @@ Route::get('/quickreads/statistics', 'StatisticsController@index');
 
 // Users
 Route::get('/quickreads/users', 'UsersController@index');
+Route::post('/quickreads/users/register', 'UsersController@register');
+Route::post('/quickreads/users/facebook', 'UsersController@store');
 
 // Stories
 Route::get('/quickreads/stories/add', 'StoriesController@create');
@@ -51,9 +55,6 @@ Route::post('/quickreads/categories', 'CategoriesController@store');
 Route::patch('/quickreads/categories/{category}', 'CategoriesController@update');
 Route::delete('/quickreads/categories/{category}', 'CategoriesController@destroy');
 
-// Users
-Route::post('/quickreads/users/facebook', 'UsersController@store');
-
 // App Routes
 Route::get('/quickreads/app/stories', 'StoriesController@app');
 Route::get('/quickreads/app/stories/text', 'StoriesController@text');
@@ -61,6 +62,12 @@ Route::get('/quickreads/app/stories/{storyTitle}/rating', 'RatingsController@sho
 Route::get('/quickreads/app/categories', 'CategoriesController@app');
 Route::get('/quickreads/app/authors', 'AuthorsController@app');
 Route::get('/quickreads/app/users', 'UsersController@app');
+Route::get('/quickreads/app/login/{email}/{password}', 'UsersController@appLogin');
+
+Route::get('/quickreads/password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('/quickreads/password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('/quickreads/password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('/quickreads/password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::post('/quickreads/app/records/purchase', 'UserPurchaseRecordController@store');
 Route::post('/quickreads/app/stories/views', 'StoriesController@incrementViews');

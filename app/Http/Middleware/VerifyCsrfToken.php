@@ -12,7 +12,9 @@ class VerifyCsrfToken extends Middleware
      * @var array
      */
     protected $except = [
+        '/quickreads/password/email',
         '/quickreads/users/facebook',
+        '/quickreads/users/register',
         '/quickreads/stories/comments',
         '/quickreads/stories/ratings',
         '/quickreads/app/stories/views',

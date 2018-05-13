@@ -4,6 +4,7 @@ namespace App;
 
 use App\Comment;
 use App\Rating;
+use App\Records\Records;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
@@ -17,7 +18,7 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    protected $withCount = ['stories'];
+    // protected $withCount = ['stories'];
 
     protected $with = ['comments', 'ratings', 'stories'];
 
@@ -33,6 +34,9 @@ class User extends Authenticatable
 
     public function getProfilePictureAttribute()
     {
+        if ($this->password)
+            return asset('images/default_avatar.png');
+
         return "http://graph.facebook.com/{$this->facebook_id}/picture?type=large";
     }
 
@@ -59,5 +63,10 @@ class User extends Authenticatable
         ])->first();
 
         return ($rating) ? $rating->score : 0;
+    }
+
+    public function scopeStatistics($query)
+    {
+        return new Records($this);
     }
 }
