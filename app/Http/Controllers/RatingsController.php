@@ -36,7 +36,7 @@ class RatingsController extends Controller
         $request->validate([
             'facebook_id' => 'required',
             'title' => 'required',
-            'score' => 'required|numeric'
+            'score' => 'required'
         ]);
 
         $rating = Rating::create([
@@ -45,7 +45,7 @@ class RatingsController extends Controller
             'score' => $request["score"]
         ]);
 
-        return $rating;
+        return response()->json(['rating' => $request->score]);
     }
 
     /**
@@ -58,6 +58,7 @@ class RatingsController extends Controller
     {
         $id = Story::where('title', $storyTitle)->pluck('id')[0];
         $story = Story::find($id);
+        
         return $story->averageRating();
     }
 

@@ -35,4 +35,14 @@ abstract class TestCase extends BaseTestCase
         $this->app->instance(ExceptionHandler::class, $this->oldExceptionHandler);
         return $this;
     }
+
+    public function register($email = 'doe@email.com')
+    {
+        return $this->post('/quickreads/users/register', [
+            'first_name' => 'John',
+            'last_name' => 'Doe',
+            'email' => $email,
+            'password' => 'secret'
+        ]);
+    }
 }

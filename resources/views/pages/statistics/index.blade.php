@@ -2,7 +2,7 @@
 
 @section('content')
 
-<div class="content-wrapper">
+<div class="content-wrapper pb-4">
   <div class="container-fluid">
   @component('components/breadcrumb', ['description' => 'Data from users behavior'])
     Statistics
@@ -10,43 +10,14 @@
     <div class="row mt-5">
       <div class="col-12 mx-auto mb-4">
         <h4 class="mb-4 text-center"><strong>Flow of users over time</strong></h4>
-        <div id="carouselRecords" class="carousel carousel-fade">
-          <div class="select-btn-group btn-group btn-group-sm mb-4">
-            <button data-target="#carouselRecords" data-slide-to="0" class="btn btn-blue">Daily</button>
-            <button data-target="#carouselRecords" data-slide-to="1"  class="btn btn-light">Monthly</button>
-            <button data-target="#carouselRecords" data-slide-to="2"  class="btn btn-light">Yearly</button>
-          </div>
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <canvas id="day-chart" 
-                  data-records="{{json_encode($dailySignups)}}" height="100"></canvas>
-            </div>
-
-            <div class="carousel-item">
-              <canvas id="month-chart" 
-                  data-records="{{json_encode($monthlySignups)}}" height="100"></canvas>
-            </div>
-
-            <div class="carousel-item">
-              <canvas id="year-chart" 
-                  data-records="{{json_encode($yearlySignups)}}" height="100"></canvas>
-            </div>
-          </div>
-        </div>
+        @include('pages/statistics/users')
       </div>
     </div>
 
     <div class="row mt-4">
-      <div class="col-lg-4 col-md-4 col-sm-6 col-12">
+      <div class="col-lg-6 col-md-6 col-sm-12 col-12">
         <h4 class="mb-4 text-center"><strong>Top stories</strong></h4>
-        <ul>
-          @foreach($topStories as $id => $count)
-          <li class="d-flex justify-content-between">
-            <span>{{\App\Story::find($id)->title}}</span>
-            <span>{{$count}}</span>
-          </li>
-          @endforeach
-        </ul>
+        @include('pages/statistics/popular')
       </div>
     </div>
   </div>

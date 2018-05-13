@@ -14993,3 +14993,28 @@ button:active {
   color: #2093a5;
 }
 
+/* width */
+
+.custom-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+
+.custom-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+
+.custom-scroll::-webkit-scrollbar-thumb {
+  background: #e5e7e9;
+  border-radius: 2px;
+}
+
+/* Handle on hover */
+
+.custom-scroll::-webkit-scrollbar-thumb:hover {
+  background: #e0dfdf;
+}
+

@@ -19,7 +19,7 @@ class StatisticsController extends Controller
 		$storiesArray = collect($storiesArray);
 		
 		$sorted = $storiesArray->sort()->reverse();
-		$topStories = $sorted->take(10);
+		$topStories = $sorted;
 
     	return view('pages/statistics/index', compact(['dailySignups', 'monthlySignups', 'yearlySignups', 'topStories']));
     }

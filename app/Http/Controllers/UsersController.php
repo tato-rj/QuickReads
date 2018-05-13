@@ -20,7 +20,7 @@ class UsersController extends Controller
     
     public function app()
     {
-        return User::latest()->get();
+        return User::latest()->with(['comments', 'ratings', 'stories'])->get();
     }
 
     /**

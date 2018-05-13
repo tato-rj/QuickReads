@@ -20,7 +20,7 @@ class User extends Authenticatable
 
     // protected $withCount = ['stories'];
 
-    protected $with = ['comments', 'ratings', 'stories'];
+    // protected $with = ['comments', 'ratings', 'stories'];
 
     public function getRouteKeyName()
     {
